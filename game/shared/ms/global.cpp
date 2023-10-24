@@ -27,8 +27,6 @@
 unsigned int g_iNumBytesWritten = 0;
 int g_iUserMessageType = -1;
 
-void LogMemoryUsage(msstring_ref Title);
-
 //Global Declarations.  Both Client & Server
 int MSGlobals::FXLimit = 20;
 bool MSGlobals::PKAllowed = false;
@@ -171,15 +169,11 @@ void MSGlobals::EndMap()
 		MSGlobals::GameScript = NULL;
 	}
 
-	//LogMemoryUsage( "[End Map Remaining Memory Allocations]" );
-
 	MSGlobals::GameType = GAMETYPE_ADVENTURE; //Default to adventure game for next level
 
 	//Reset vars for music
 	AllMusic.clear();
 	AllMusicMode = 0;
-
-	MemMgr::EndMap();
 }
 
 void MSGlobals::SharedThink()
@@ -189,8 +183,6 @@ void MSGlobals::SharedThink()
 	dbg("Call MSGlobals->GameScript->Think");
 	if (MSGlobals::GameScript)
 		MSGlobals::GameScript->RunScriptEvents(false);
-
-	MemMgr::Think();
 
 	enddbg;
 }
@@ -240,8 +232,6 @@ void MSGlobals::DLLDetach()
 	CGlobalScriptedEffects::DeleteEffects();
 
 	CScript::m_gVariables.clear();
-
-	LogMemoryUsage("[DLL Unload Remaining Memory Allocations]");
 }
 
 void CBaseEntity::DelayedRemove()
@@ -843,49 +833,3 @@ bool FindSkyHeight(Vector Origin, float &SkyHeight)
 	logfile << "Loaded Model #" << idx << " (" << pszModel << ")" << endl;
 	return idx;
 }*/
-
-bool g_MemWarningActive = false;
-int MemMgr::m_TotalAllocations = 0;
-int MemMgr::m_HighestAllocations = 0;
-float MemMgr::m_TimePrintAllocations = 0;
-
-void MemMgr::NewAllocation(void *pAddr, size_t size)
-{
-	m_TotalAllocations++;
-
-	if (g_MemWarningActive)
-	{
-		if (m_TotalAllocations > m_HighestAllocations)
-		{
-			g_MemWarningActive = false;
-		}
-	}
-}
-
-void MemMgr::NewDeallocation(void *pAddr)
-{
-	m_TotalAllocations--;
-}
-
-void MemMgr::Think()
-{
-	float DebugMemValue = EngineFunc::CVAR_GetFloat("ms_debug_mem");
-	if (DebugMemValue > 0)
-	{
-		if (gpGlobals->time > m_TimePrintAllocations)
-		{
-			Print("Mem Allocations: %i\n", m_TotalAllocations);
-			m_TimePrintAllocations = gpGlobals->time + DebugMemValue;
-		}
-	}
-
-	if (m_TotalAllocations == m_HighestAllocations)
-		g_MemWarningActive = true;
-
-	m_HighestAllocations = m_TotalAllocations;
-}
-
-void MemMgr::EndMap()
-{
-	m_TimePrintAllocations = 0;
-}

@@ -74,19 +74,6 @@ public:
 	static int gSoundPrecacheCount;
 };
 
-class MemMgr
-{
-public:
-	static int m_TotalAllocations;
-	static int m_HighestAllocations;
-	static float m_TimePrintAllocations;
-
-	static void NewAllocation(void *pAddr, size_t size);
-	static void NewDeallocation(void *pAddr);
-	static void Think();
-	static void EndMap();
-};
-
 enum MusicType {
 	MUSIC_AREA,
 	MUSIC_COMBAT,
