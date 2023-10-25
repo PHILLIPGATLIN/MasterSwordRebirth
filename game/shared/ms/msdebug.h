@@ -124,28 +124,6 @@ struct string_i
 	msstring m_string;
 };
 
-#ifdef DEV_BUILD
-void *operator new(size_t size, const char *pszSourceFile, int LineNum);
-void operator delete(void *ptr, const char *pszSourceFile, int LineNum);
-#define msnew new (__FILE__, __LINE__)
-#else
 #define msnew new
-#endif
-
-struct memalloc_t
-{
-	msstring SourceFile;
-	int LineNum;
-	int Index;
-	void *pAddr;
-	bool Used;
-	inline memalloc_t &operator=(const memalloc_t &mem)
-	{
-		SourceFile = mem.SourceFile;
-		LineNum = mem.LineNum;
-		pAddr = mem.pAddr;
-		return *this;
-	}
-};
 
 #endif

@@ -178,13 +178,8 @@ void MSGlobals::EndMap()
 
 void MSGlobals::SharedThink()
 {
-	startdbg;
-
-	dbg("Call MSGlobals->GameScript->Think");
 	if (MSGlobals::GameScript)
 		MSGlobals::GameScript->RunScriptEvents(false);
-
-	enddbg;
 }
 
 //Called on client & server when the dll is loaded
@@ -411,8 +406,6 @@ static msstringlist Parameters; //made static, for speed
 
 void CScriptedEnt::Spawn()
 {
-	startdbg;
-	dbg("Begin");
 	StoreEntity(this, ENT_ME);
 	m_HandleThink = true;
 
@@ -420,18 +413,12 @@ void CScriptedEnt::Spawn()
 	CBaseEntity::Spawn();
 	if (!pEdict->free)
 	{
-		dbg("Call game_spawn");
 		CallScriptEvent("spawn");	   //old
 		CallScriptEvent("game_spawn"); //not called by players (dunno about monsters)
 	}
-
-	enddbg;
 }
 void CScriptedEnt::Think()
 {
-	startdbg;
-	dbg("CScriptedEnt::Think - Begin");
-
 	edict_t *pEdict = edict();
 	CBaseEntity::Think();
 
@@ -444,8 +431,6 @@ void CScriptedEnt::Think()
 		return;
 
 	CallScriptEvent("game_think");
-
-	enddbg;
 }
 
 void CScriptedEnt::Touch(CBaseEntity *pOther)
@@ -477,9 +462,6 @@ void CScriptedEnt::Blocked(CBaseEntity *pOther)
 }
 void CScriptedEnt::Use(CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value)
 {
-	startdbg;
-	dbg("Begin");
-
 	if (m_pfnUse)
 		(this->*m_pfnUse)(pActivator, pCaller, useType, value);
 
@@ -489,13 +471,9 @@ void CScriptedEnt::Use(CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE u
 	Parameters.add(UTIL_VarArgs("%i", useType));
 	Parameters.add(UTIL_VarArgs("%f", value));
 	CallScriptEvent("game_used", &Parameters);
-	enddbg;
 }
 void CScriptedEnt::KeyValue(KeyValueData *pkvd)
 {
-	startdbg;
-	dbg("Begin");
-
 	if (!pkvd->fHandled && !strcmp(pkvd->szKeyName, "scriptname"))
 	{
 		Script_Add(pkvd->szValue, this);
@@ -504,18 +482,11 @@ void CScriptedEnt::KeyValue(KeyValueData *pkvd)
 	}
 	else
 		pkvd->fHandled = FALSE;
-
-	enddbg;
 }
 void CScriptedEnt::Deactivate()
 {
-	startdbg;
-	dbg("CScriptedEnt::Deactivate - Begin");
-
 	CBaseEntity::Deactivate();
 	IScripted::Deactivate();
-
-	enddbg;
 }
 /*
 ======================
