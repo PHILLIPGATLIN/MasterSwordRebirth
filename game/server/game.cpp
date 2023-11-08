@@ -76,7 +76,7 @@ void wait(unsigned long ms)
 // This gets called one time when the game is initialied
 void GameDLLInit(void)
 {
-	DBG_INPUT;
+	
 
 	//Master Sword -- Initialize the Master Sword Global items.
 	if (!MSGlobalInit())

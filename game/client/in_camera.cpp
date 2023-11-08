@@ -147,7 +147,7 @@ extern trace_t SV_ClipMoveToEntity (edict_t *ent, vec3_t start, vec3_t mins, vec
 */
 void DLLEXPORT CAM_Think(void)
 {
-	DBG_INPUT;
+	
 	startdbg;
 
 	vec3_t origin;
@@ -653,7 +653,7 @@ void CAM_EndDistance(void)
 
 int DLLEXPORT CL_IsThirdPerson(void)
 {
-	DBG_INPUT;
+	
 	//Master Sword - Always report thirdperson to the engine.  This causes the engine to draw my thirdperson model
 	//			   - Later, in StudioDrawPlayer() I check to make sure the proper thirdperson model is being drawn
 	//			   - Update: The above is UNDONE
@@ -665,6 +665,6 @@ int DLLEXPORT CL_IsThirdPerson(void)
 
 void DLLEXPORT CL_CameraOffset(float *ofs)
 {
-	DBG_INPUT;
+	
 	VectorCopy(cam_ofs, ofs);
 }

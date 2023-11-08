@@ -488,7 +488,7 @@ void CRender::PopHLStates()
 
 void DLLEXPORT HUD_DrawNormalTriangles(void)
 {
-	DBG_INPUT;
+	
 	startdbg;
 
 	dbg("Begin");
@@ -531,7 +531,7 @@ Render any triangles with transparent rendermode needs here
 //Draw Mirrors
 void DLLEXPORT HUD_DrawTransparentTriangles(void)
 {
-	DBG_INPUT;
+	
 
 	startdbg;
 	dbg("Begin");

@@ -117,7 +117,7 @@ static void SetObjectCollisionBox(entvars_t *pev);
 extern "C" {
 	int GetEntityAPI(DLL_FUNCTIONS* pFunctionTable, int interfaceVersion)
 	{
-		DBG_INPUT;
+		
 		if (!pFunctionTable || interfaceVersion != INTERFACE_VERSION)
 		{
 			return FALSE;
@@ -129,7 +129,7 @@ extern "C" {
 
 	int GetEntityAPI2(DLL_FUNCTIONS* pFunctionTable, int* interfaceVersion)
 	{
-		DBG_INPUT;
+		
 		if (!pFunctionTable || *interfaceVersion != INTERFACE_VERSION)
 		{
 			// Tell engine what version we had, so it can figure out who is out of date.
@@ -158,7 +158,7 @@ extern "C" {
 
 int DispatchSpawn(edict_t *pent)
 {
-	DBG_INPUT;
+	
 
 	CBaseEntity *pSound = UTIL_FindEntityByClassname(NULL, "soundent");
 
@@ -224,7 +224,7 @@ int DispatchSpawn(edict_t *pent)
 
 void DispatchKeyValue(edict_t *pentKeyvalue, KeyValueData *pkvd)
 {
-	DBG_INPUT;
+	
 
 	startdbg;
 	dbg("DispatchKeyValue - Begin");
@@ -276,7 +276,7 @@ void DispatchTouch(edict_t *pentTouched, edict_t *pentOther)
 
 void DispatchUse(edict_t *pentUsed, edict_t *pentOther)
 {
-	DBG_INPUT;
+	
 	CBaseEntity *pEntity = (CBaseEntity *)GET_PRIVATE(pentUsed);
 	CBaseEntity *pOther = (CBaseEntity *)GET_PRIVATE(pentOther);
 
@@ -288,7 +288,7 @@ void DispatchUse(edict_t *pentUsed, edict_t *pentOther)
 #define Set_DispatchThinkDbg(a) dbg(msstring("(") + STRING(pent->v.classname) + ") " + a)
 void DispatchThink(edict_t *pent)
 {
-	//DBG_INPUT;
+	//
 	//startdbg;
 
 	//dbg( "Begin" );
@@ -320,7 +320,7 @@ void DispatchThink(edict_t *pent)
 
 void DispatchBlocked(edict_t *pentBlocked, edict_t *pentOther)
 {
-	DBG_INPUT;
+	
 	startdbg;
 	dbg("Begin");
 	CBaseEntity *pEntity = (CBaseEntity *)GET_PRIVATE(pentBlocked);
@@ -334,7 +334,7 @@ void DispatchBlocked(edict_t *pentBlocked, edict_t *pentOther)
 
 void DispatchSave(edict_t *pent, SAVERESTOREDATA *pSaveData)
 {
-	DBG_INPUT;
+	
 	CBaseEntity *pEntity = (CBaseEntity *)GET_PRIVATE(pent);
 
 	if (pEntity && pSaveData)
@@ -509,14 +509,14 @@ void DispatchObjectCollsionBox(edict_t *pent)
 
 void SaveWriteFields(SAVERESTOREDATA *pSaveData, const char *pname, void *pBaseData, TYPEDESCRIPTION *pFields, int fieldCount)
 {
-	DBG_INPUT;
+	
 	CSave saveHelper(pSaveData);
 	saveHelper.WriteFields(pname, pBaseData, pFields, fieldCount);
 }
 
 void SaveReadFields(SAVERESTOREDATA *pSaveData, const char *pname, void *pBaseData, TYPEDESCRIPTION *pFields, int fieldCount)
 {
-	DBG_INPUT;
+	
 	CRestore restoreHelper(pSaveData);
 	restoreHelper.ReadFields(pname, pBaseData, pFields, fieldCount);
 }

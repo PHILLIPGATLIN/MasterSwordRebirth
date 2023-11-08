@@ -91,7 +91,7 @@ called when a player connects to a server
 */
 BOOL ClientConnect(edict_t *pEntity, const char *pszName, const char *pszAddress, char szRejectReason[128])
 {
-	DBG_INPUT;
+	
 	bool fSuccess = false;
 	startdbg;
 
@@ -133,7 +133,7 @@ GLOBALS ASSUMED SET:  g_fGameOver
 
 void ClientDisconnect(edict_t *pEntity)
 {
-	DBG_INPUT;
+	
 	startdbg;
 
 	dbg("Begin");
@@ -179,7 +179,7 @@ GLOBALS ASSUMED SET:  g_ulModelIndexPlayer
 void ClientKill(edict_t *pEntity)
 {
 	startdbg;
-	DBG_INPUT;
+	
 	entvars_t *pev = &pEntity->v;
 
 	CBasePlayer *pPlayer = (CBasePlayer *)CBasePlayer::Instance(pev);
@@ -204,7 +204,7 @@ called each time a player is spawned
 void ClientPutInServer(edict_t *pEntity)
 {
 	startdbg;
-	DBG_INPUT;
+	
 
 	logfile << Logger::LOG_INFO << "[ClientPutInServer]\n";
 	CBasePlayer *pPlayer;
@@ -399,7 +399,7 @@ void ClientCommand2(edict_t *pEntity);
 
 void ClientCommand(edict_t *pEntity)
 {
-	DBG_INPUT;
+	
 	startdbg;
 	//logfile << "[CC START] " << CMD_ARGC() << " " << CMD_ARGV(0) << " " << (CMD_ARGC() >= 2 ? CMD_ARGS() : "") << " ";
 	if (!CMD_ARGC())
@@ -1606,7 +1606,7 @@ it gets sent into the rest of the engine.
 void ClientUserInfoChanged(edict_t *pEntity, char *infobuffer)
 {
 	startdbg;
-	DBG_INPUT;
+	
 
 	/*if( !pEntity->v.netname )
 	{
@@ -1640,7 +1640,7 @@ static int g_serveractive = 0;
 
 void ServerDeactivate(void)
 {
-	DBG_INPUT;
+	
 	startdbg;
 
 	// It's possible that the engine will call this function more times than is necessary
@@ -1673,7 +1673,7 @@ DLL_GLOBAL extern bool g_fInPrecache; //Code called from is in CWorld::Precache
 
 void ServerActivate(edict_t *pEdictList, int edictCount, int clientMax)
 {
-	DBG_INPUT;
+	
 	startdbg;
 	int i;
 	CBaseEntity *pClass;
@@ -1755,7 +1755,7 @@ Called every frame before physics are run
 */
 void PlayerPreThink(edict_t *pEntity)
 {
-	DBG_INPUT;
+	
 	startdbg;
 
 	dbg("Begin");
@@ -1777,7 +1777,7 @@ Called every frame after physics are run
 
 void PlayerPostThink(edict_t *pEntity)
 {
-	DBG_INPUT;
+	
 	startdbg;
 
 	dbg("Begin");
@@ -1791,12 +1791,12 @@ void PlayerPostThink(edict_t *pEntity)
 
 void ParmsNewLevel(void)
 {
-	DBG_INPUT;
+	
 }
 
 void ParmsChangeLevel(void)
 {
-	DBG_INPUT;
+	
 	// retrieve the pointer to the save data
 	SAVERESTOREDATA *pSaveData = (SAVERESTOREDATA *)gpGlobals->pSaveData;
 
@@ -1809,7 +1809,7 @@ void ParmsChangeLevel(void)
 //
 void StartFrame(void)
 {
-	DBG_INPUT;
+	
 	startdbg;
 
 	dbg("Call MSGlobals::SharedThink");
@@ -1985,7 +1985,7 @@ animation right now.
 */
 void PlayerCustomization(edict_t *pEntity, customization_t *pCust)
 {
-	DBG_INPUT;
+	
 	startdbg;
 	entvars_t *pev = &pEntity->v;
 	CBasePlayer *pPlayer = (CBasePlayer *)GET_PRIVATE(pEntity);
@@ -2028,7 +2028,7 @@ A spectator has joined the game
 */
 void SpectatorConnect(edict_t *pEntity)
 {
-	DBG_INPUT;
+	
 	entvars_t *pev = &pEntity->v;
 	CBaseSpectator *pPlayer = (CBaseSpectator *)GET_PRIVATE(pEntity);
 
@@ -2045,7 +2045,7 @@ A spectator has left the game
 */
 void SpectatorDisconnect(edict_t *pEntity)
 {
-	DBG_INPUT;
+	
 	entvars_t *pev = &pEntity->v;
 	CBaseSpectator *pPlayer = (CBaseSpectator *)GET_PRIVATE(pEntity);
 
@@ -2062,7 +2062,7 @@ A spectator has sent a usercmd
 */
 void SpectatorThink(edict_t *pEntity)
 {
-	DBG_INPUT;
+	
 	entvars_t *pev = &pEntity->v;
 	CBaseSpectator *pPlayer = (CBaseSpectator *)GET_PRIVATE(pEntity);
 
@@ -2090,7 +2090,7 @@ NOTE:  Do not cache the values of pas and pvs, as they depend on reusable memory
 */
 void SetupVisibility(edict_t *pViewEntity, edict_t *pClient, unsigned char **pvs, unsigned char **pas)
 {
-	DBG_INPUT;
+	
 	startdbg;
 	Vector org;
 	edict_t *pView = pClient;
@@ -2137,7 +2137,7 @@ we could also use the pas/ pvs that we set in SetupVisibility, if we wanted to. 
 //Dogg - basically decide whether or not to send an entity
 int AddToFullPack(struct entity_state_s *state, int e, edict_t *ent, edict_t *host, int hostflags, int player, unsigned char *pSet)
 {
-	DBG_INPUT;
+	
 	startdbg;
 	dbg("Begin");
 
@@ -2372,7 +2372,7 @@ Creates baselines used for network encoding, especially for player data since pl
 */
 void CreateBaseline(int player, int eindex, struct entity_state_s *baseline, struct edict_s *entity, int playermodelindex, vec3_t player_mins, vec3_t player_maxs)
 {
-	DBG_INPUT;
+	
 	startdbg;
 	dbg("CreateBaseline - Begin");
 	baseline->origin = entity->v.origin;
@@ -2721,7 +2721,7 @@ Allows game .dll to override network encoding of certain types of entities and t
 */
 void RegisterEncoders(void)
 {
-	DBG_INPUT;
+	
 	DELTA_ADDENCODER("Entity_Encode", Entity_Encode);
 	DELTA_ADDENCODER("Custom_Encode", Custom_Encode);
 	DELTA_ADDENCODER("Player_Encode", Player_Encode);
@@ -2729,7 +2729,7 @@ void RegisterEncoders(void)
 
 int GetWeaponData(struct edict_s *player, struct weapon_data_s *info)
 {
-	DBG_INPUT;
+	
 	memset(info, 0, 32 * sizeof(weapon_data_t));
 	return 1; //1
 }
@@ -2744,7 +2744,7 @@ engine sets cd to 0 before calling.
 */
 void UpdateClientData(const struct edict_s *ent, int sendweapons, struct clientdata_s *cd)
 {
-	DBG_INPUT;
+	
 	startdbg;
 
 	cd->flags = ent->v.flags;
@@ -2797,7 +2797,7 @@ This is the time to examine the usercmd for anything extra.  This call happens e
 */
 void CmdStart(const edict_t *player, const struct usercmd_s *cmd, unsigned int random_seed)
 {
-	DBG_INPUT;
+	
 	startdbg;
 	CBasePlayer *pPlayer = (CBasePlayer *)CBasePlayer::Instance((entvars_t *)&player->v);
 
@@ -2823,7 +2823,7 @@ Each cmdstart is exactly matched with a cmd end, clean up any group trace flags,
 */
 void CmdEnd(const edict_t *player)
 {
-	DBG_INPUT;
+	
 	startdbg;
 	entvars_t *pev = (entvars_t *)&player->v;
 	CBasePlayer *pl = (CBasePlayer *)CBasePlayer::Instance(pev);
@@ -2848,7 +2848,7 @@ ConnectionlessPacket
 */
 int ConnectionlessPacket(const struct netadr_s *net_from, const char *args, char *response_buffer, int *response_buffer_size)
 {
-	DBG_INPUT;
+	
 	// Parse stuff from args
 	int max_buffer_size = *response_buffer_size;
 
@@ -2870,7 +2870,7 @@ GetHullBounds
 */
 int GetHullBounds(int hullnumber, float *mins, float *maxs)
 {
-	DBG_INPUT;
+	
 	int iret = 0;
 
 	switch (hullnumber)
@@ -2905,7 +2905,7 @@ to be created during play ( e.g., grenades, ammo packs, projectiles, corpses, et
 */
 void CreateInstancedBaselines(void)
 {
-	DBG_INPUT;
+	
 	//int iret = 0;
 	//entity_state_t state;
 
@@ -2928,7 +2928,7 @@ One of the ENGINE_FORCE_UNMODIFIED files failed the consistency check for the sp
 */
 int InconsistentFile(const edict_t *player, const char *filename, char *disconnect_message)
 {
-	DBG_INPUT;
+	
 	// Server doesn't care?
 	//if ( CVAR_GET_FLOAT( "mp_consistency" ) != 1 )
 	//	return 0;
@@ -2956,6 +2956,6 @@ AllowLagCompensation
 */
 int AllowLagCompensation(void)
 {
-	DBG_INPUT;
+	
 	return 0;
 }

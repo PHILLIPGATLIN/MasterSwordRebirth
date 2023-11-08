@@ -1878,7 +1878,7 @@ void DLLEXPORT HUD_TempEntUpdate(
 	int (*Callback_AddVisibleEntity)(cl_entity_t *pEntity),
 	void (*Callback_TempEntPlaySound)(TEMPENTITY *pTemp, float damp))
 {
-	DBG_INPUT;
+	
 
 	static int gTempEntFrame = 0;
 	int i;
