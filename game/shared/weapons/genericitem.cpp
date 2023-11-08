@@ -1591,8 +1591,6 @@ void CGenericItem::RemoveFromOwner()
 
 	dbg("Call Wearable_ResetClientUpdate");
 	Wearable_ResetClientUpdate();
-
-	enddbgprt(msstring("[") + DisplayName() + "]");
 }
 void CGenericItem::RemoveFromContainer()
 {

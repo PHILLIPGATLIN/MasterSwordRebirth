@@ -624,8 +624,6 @@ void CMSMonster::Think()
 	FrameConditions = 0;
 	if (TempConditions & FC_AVOID)
 		FrameConditions |= FC_AVOID;
-
-	enddbgprt(m_ScriptName.c_str());
 }
 /*int CMSMonster :: MoveExecute ( const Vector &vecStart, const Vector &vecEnd, CBaseEntity *pTarget, float *pflDist, bool fTestMove )
 {
@@ -2080,8 +2078,6 @@ void CMSMonster::SetAnimation(MONSTER_ANIM AnimType, const char* pszAnimName, vo
 		if (m_Framerate_Modifier)
 			pev->framerate *= m_Framerate_Modifier;
 	}
-
-	enddbgprt((IsPlayer() ? "(Monster)" : "(PLAYER)"));
 }
 void CMSMonster::BreakAnimation(MONSTER_ANIM AnimType, const char* pszAnimName, void* vData)
 {
@@ -2138,8 +2134,6 @@ void CMSMonster::BreakAnimation(MONSTER_ANIM AnimType, const char* pszAnimName, 
 		if (m_Framerate_Modifier)
 			pev->framerate *= m_Framerate_Modifier;
 	}
-
-	enddbgprt((IsPlayer() ? "(Monster)" : "(PLAYER)"));
 }
 void CMSMonster::Attacked(CBaseEntity* pAttacker, damage_t& Damage)
 {
