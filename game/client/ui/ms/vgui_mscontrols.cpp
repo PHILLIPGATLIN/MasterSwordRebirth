@@ -98,7 +98,7 @@ CImageDelayed::CImageDelayed( const char *pszImageName, bool TGAorSprite, bool D
 
 void CImageDelayed::LoadImg( )
 {
-	startdbg;
+	
 	if( m_ImageLoaded )
 		return;	//already loaded image
 
@@ -127,7 +127,7 @@ void CImageDelayed::LoadImg( )
 
 void CImageDelayed::LoadImg( const char *pszImageName, bool TGAorSprite, bool Delayed )
 {
-	startdbg;
+	
 	//The image name is stored, but we may delay loading of the image data until LoadImg() is called.
 	//Some image buttons are never be shown... this saves us from ever loading those
 	ClearImg( );
@@ -725,7 +725,7 @@ void VGUI_Container::PurgeButtons( )
 
 void VGUI_TextPanel::KeyInput( int down, int keynum, const char *pszCurrentBinding )
 {
-	startdbg;
+	
 	dbg( "Begin" );
 
 	if( !m_Active )

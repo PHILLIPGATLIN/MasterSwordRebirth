@@ -1259,7 +1259,7 @@ void RenderModel(cl_entity_t* pEntity)
 //MIB APR2008a - massive changes
 int CStudioModelRenderer::StudioDrawModel(int flags)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	//if( !FBitSet(flags, STUDIO_RENDER) ) return 1;

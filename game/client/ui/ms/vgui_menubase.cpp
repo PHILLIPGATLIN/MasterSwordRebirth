@@ -98,7 +98,7 @@ VGUI_MenuBase::VGUI_MenuBase(Panel *myParent) : CMenuPanel(255, 0, 0, 0, ScreenW
 
 void VGUI_MenuBase::Init()
 {
-	startdbg;
+	
 
 	SetBits(m_Flags, MENUFLAG_TRAPNUMINPUT);
 

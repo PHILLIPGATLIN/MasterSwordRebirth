@@ -135,7 +135,7 @@ void CGenericItem::ProjectileTouch(CBaseEntity *pOther)
 {
 	//if ( ProjectileData->IgnoreNPC ) return;
 
-	startdbg;
+	
 
 	TypeCheck;
 

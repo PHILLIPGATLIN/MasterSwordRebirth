@@ -231,7 +231,7 @@ Allows the engine to get a kbutton_t directly ( so it can check +mlook state, et
 struct kbutton_s DLLEXPORT *KB_Find(const char *name)
 {
 	
-	startdbg;
+	
 
 	kblist_t *p;
 	p = g_kbkeys;
@@ -391,7 +391,7 @@ Return 1 to allow engine to process the key, otherwise, act on it as needed
 */
 int DLLEXPORT HUD_Key_Event(int down, int keynum, const char *pszCurrentBinding)
 {
-	startdbg;
+	
 	
 
 	dbg("Begin");
@@ -757,7 +757,7 @@ if active == 1 then we are 1) not playing back demos ( where our commands are ig
 void DLLEXPORT CL_CreateMove(float frametime, struct usercmd_s *cmd, int active)
 {
 	
-	startdbg;
+	
 
 	dbg("Begin");
 

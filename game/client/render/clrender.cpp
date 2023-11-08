@@ -489,7 +489,7 @@ void CRender::PopHLStates()
 void DLLEXPORT HUD_DrawNormalTriangles(void)
 {
 	
-	startdbg;
+	
 
 	dbg("Begin");
 
@@ -533,7 +533,7 @@ void DLLEXPORT HUD_DrawTransparentTriangles(void)
 {
 	
 
-	startdbg;
+	
 	dbg("Begin");
 
 	CRender::PushHLStates();
@@ -618,7 +618,7 @@ void VGUI_Image3D::init()
 
 void VGUI_Image3D::LoadImg()
 {
-	startdbg;
+	
 	if (m_ImageLoaded)
 		return;
 
@@ -705,7 +705,7 @@ bool LoadGLTexture(const char *FileName, loadtex_t &LoadTex)
 {
 	bool Loaded = false;
 
-	startdbg;
+	
 
 	dbg("Enter LoadGLTexture()");
 	dbg("Find Existing texture...");

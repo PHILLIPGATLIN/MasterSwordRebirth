@@ -61,7 +61,7 @@ void MSCLGlobals::RemoveEnt(CBaseEntity *pEntity, bool fDelete)
 //Global one-time Initialization - called from CHud :: Init()
 void MSCLGlobals::Initialize()
 {
-	startdbg;
+	
 
 	dbg("Begin");
 	//Set up g_engfuncs re-directs
@@ -174,7 +174,7 @@ void MSCLGlobals::InitializePlayer()
 //Global think - sure to be called every frame
 void MSCLGlobals::Think()
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	static float flLastThinkTime = 0;
@@ -352,7 +352,7 @@ void ShowVGUIMenu(int iMenu);
 
 void MSCLGlobals::SpawnIntoServer()
 {
-	startdbg;
+	
 
 	logfile << Logger::LOG_INFO << "SpawnIntoServer...";
 
@@ -379,7 +379,7 @@ void MSCLGlobals::SpawnIntoServer()
 //Cleans up stuff from the previous map
 void MSCLGlobals::Cleanup()
 {
-	startdbg;
+	
 
 	//Remove spell list
 	player.m_SpellList.clear();

@@ -460,7 +460,7 @@ LINK_ENTITY_TO_CLASS(mstrig_changelevel, CMSChangeLevel);
 
 void CScript::ScriptedEffect(msstringlist &Params)
 {
-	startdbg;
+	
 	dbg("Begin");
 	if (!Params.size())
 	{

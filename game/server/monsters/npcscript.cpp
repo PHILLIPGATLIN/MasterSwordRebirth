@@ -99,7 +99,7 @@ bool CMSMonster::Script_ExecuteCmd(CScript *Script, SCRIPT_EVENT &Event, scriptc
 #ifdef VALVE_DLL
 
 	// Executes a single script event
-	startdbg;
+	
 
 	msstring sTemp;
 

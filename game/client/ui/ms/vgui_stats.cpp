@@ -65,7 +65,7 @@ static COLOR Color_TitleText = COLOR(255, 255, 255, 0),
 // Creation
 CStatPanel::CStatPanel(Panel *pParent) : CMenuPanel(0, false, 0, 0, ScreenWidth, ScreenHeight)
 {
-	startdbg;
+	
 	setParent(pParent);
 	setVisible(false);
 

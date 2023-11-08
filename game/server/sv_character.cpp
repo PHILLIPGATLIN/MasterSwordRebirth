@@ -149,7 +149,7 @@ static char cTemp[MSSTRING_SIZE];
 
 void chardata_t::ReadMaps1(byte DataID, CPlayer_DataBuffer &m_File)
 {
-	startdbg;
+	
 	if (DataID == CHARDATA_MAPSVISITED1)
 	{
 		//Read Maps Visited
@@ -169,7 +169,7 @@ void chardata_t::ReadMaps1(byte DataID, CPlayer_DataBuffer &m_File)
 
 void chardata_t::ReadSkills1(byte DataID, CPlayer_DataBuffer &m_File)
 {
-	startdbg;
+	
 	if (DataID == CHARDATA_SKILLS1)
 	{
 		// Read skills
@@ -233,7 +233,7 @@ void chardata_t::ReadSkills1(byte DataID, CPlayer_DataBuffer &m_File)
 
 void chardata_t::ReadSpells1(byte DataID, CPlayer_DataBuffer &m_File)
 {
-	startdbg;
+	
 	if (DataID == CHARDATA_SPELLS1)
 	{
 		//Read Magic spells
@@ -252,7 +252,7 @@ void chardata_t::ReadSpells1(byte DataID, CPlayer_DataBuffer &m_File)
 
 void chardata_t::ReadItems1(byte DataID, CPlayer_DataBuffer &m_File)
 {
-	startdbg;
+	
 	if (DataID == CHARDATA_ITEMS1 || DataID == CHARDATA_ITEMS2)
 	{
 		//Read Items
@@ -274,7 +274,7 @@ void chardata_t::ReadItems1(byte DataID, CPlayer_DataBuffer &m_File)
 
 void chardata_t::ReadStorageItems1(byte DataID, CPlayer_DataBuffer &m_File)
 {
-	startdbg;
+	
 	if (DataID == CHARDATA_STORAGE1)
 	{
 		//Read storage items
@@ -306,7 +306,7 @@ void chardata_t::ReadStorageItems1(byte DataID, CPlayer_DataBuffer &m_File)
 
 void chardata_t::ReadCompanions1(byte DataID, CPlayer_DataBuffer &m_File)
 {
-	startdbg;
+	
 	if (DataID == CHARDATA_COMPANIONS1)
 	{
 		//Read Companions
@@ -338,7 +338,7 @@ void chardata_t::ReadCompanions1(byte DataID, CPlayer_DataBuffer &m_File)
 
 void chardata_t::ReadHelpTips1(byte DataID, CPlayer_DataBuffer &m_File)
 {
-	startdbg;
+	
 	if (DataID == CHARDATA_HELPTIPS1)
 	{
 		//Read Help tips
@@ -356,7 +356,7 @@ void chardata_t::ReadHelpTips1(byte DataID, CPlayer_DataBuffer &m_File)
 
 void chardata_t::ReadQuests1(byte DataID, CPlayer_DataBuffer &m_File)
 {
-	startdbg;
+	
 	if (DataID == CHARDATA_QUESTS1)
 	{
 		//Read Quests
@@ -378,7 +378,7 @@ void chardata_t::ReadQuests1(byte DataID, CPlayer_DataBuffer &m_File)
 
 void chardata_t::ReadQuickSlots1(byte DataID, CPlayer_DataBuffer &m_File)
 {
-	startdbg;
+	
 	if (DataID == CHARDATA_QUICKSLOTS1)
 	{
 		//Read Quickslots
@@ -503,7 +503,7 @@ void WriteItem(CPlayer_DataBuffer &gFile, genericitem_full_t &Item);
 //If pData != NULL, then this is a new char
 void MSChar_Interface::SaveChar(CBasePlayer *pPlayer, savedata_t *pData)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	//#ifndef VALVE_DLL

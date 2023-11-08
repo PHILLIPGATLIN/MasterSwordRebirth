@@ -203,7 +203,7 @@ void UTIL_StringToVector(float *pVector, const char *pString)
 
 int UTIL_FindEntityInMap(char *name, float *origin, float *angle)
 {
-	startdbg;
+	
 	int n, found = 0;
 	char keyname[256];
 	char token[1024];
@@ -1560,7 +1560,7 @@ int CHudSpectator::ToggleInset(bool allowOff)
 }
 void CHudSpectator::Reset()
 {
-	startdbg;
+	
 	// Reset HUD
 	if (strcmp(m_OverviewData.map, gEngfuncs.pfnGetLevelName()))
 	{

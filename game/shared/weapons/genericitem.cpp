@@ -157,7 +157,7 @@ CGenericItem* NewGenericItem(CGenericItem* pGlobalItem) {
 
 CGenericItem* CGenericItemMgr::NewGenericItem(CGenericItem* pGlobalItem)
 {
-	startdbg;
+	
 
 	if (!pGlobalItem)
 		return NULL;
@@ -285,7 +285,7 @@ void CGenericItemMgr::DeleteItem(int idx)
 
 void CGenericItemMgr::DeleteItems()
 {
-	startdbg;
+	
 	int ItemCount = m_Items.size(); //Save because this will be changing
 	for (int i = 0; i < ItemCount; i++)
 		DeleteItem(0); //Keep deleting the first item
@@ -323,7 +323,7 @@ void CGenericItemMgr::GenericItemPrecache(void)
 
 	ALERT(at_logged, "Precaching Items...\n");
 
-	startdbg;
+	
 
 	dbg("Add Script commands");
 
@@ -562,7 +562,7 @@ CGenericItem::~CGenericItem()
 
 void CGenericItem::Deactivate()
 {
-	startdbg;
+	
 
 	dbg("Deallocate Attacks");
 	m_Attacks.clear();
@@ -976,7 +976,7 @@ void CGenericItem::UnWield(void) {}
 
 bool CGenericItem::UseItem(bool Verbose)
 {
-	startdbg;
+	
 
 	if (!m_pOwner)
 		return false;
@@ -1439,7 +1439,7 @@ bool CGenericItem::ActivatedByOwner(void)
 
 void CGenericItem::ListContents()
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	if (m_pPlayer)
@@ -1458,7 +1458,7 @@ void CGenericItem::ListContents()
 msstring ItemThinkProgress;
 void CGenericItem::Think()
 {
-	startdbg;
+	
 	dbg("Remove marked items");
 
 	if (!Owner() && m_TimeExpire && gpGlobals->time >= m_TimeExpire)
@@ -1545,7 +1545,7 @@ void CGenericItem::Move()
 
 void CGenericItem::RemoveFromOwner()
 {
-	startdbg;
+	
 
 	dbg("Call remove script event");
 
@@ -1657,7 +1657,7 @@ void CGenericItem::Script_Setup()
 bool CGenericItem::Script_ExecuteCmd(CScript* Script, SCRIPT_EVENT& Event, scriptcmd_t& Cmd, msstringlist& Params)
 {
 	//Parse one command
-	startdbg;
+	
 
 	msstring sTemp;
 

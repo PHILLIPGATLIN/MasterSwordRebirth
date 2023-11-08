@@ -104,7 +104,7 @@ void VGUI_Think()
 		gViewPort->m_Menus[i]->Think( );
 	*/
 
-	startdbg;
+	
 	for (int i = 0; i < gViewPort->m_Menus.size(); i++)
 	{
 		dbg(i);
@@ -490,7 +490,7 @@ public:
 Font *g_FontSml, *g_FontTitle, *g_FontID;
 TeamFortressViewport::TeamFortressViewport(int x, int y, int wide, int tall) : Panel(x, y, wide, tall), m_SchemeManager(wide, tall)
 {
-	startdbg;
+	
 	gViewPort = this;
 	m_iInitialized = false;
 	//Master Sword
@@ -601,7 +601,7 @@ TeamFortressViewport::TeamFortressViewport(int x, int y, int wide, int tall) : P
 //-----------------------------------------------------------------------------
 void TeamFortressViewport::Initialize(void)
 {
-	startdbg;
+	
 	// Force each menu to Initialize
 	//Master Sword
 	//Turn off HUDs
@@ -1201,7 +1201,7 @@ void TeamFortressViewport::UpdateSpectatorPanel()
 //======================================================================
 void TeamFortressViewport::CreateScoreBoard(void)
 {
-	startdbg;
+	
 
 	int xdent = SBOARD_INDENT_X, ydent = SBOARD_INDENT_Y;
 	if (ScreenWidth == 512)
@@ -1361,7 +1361,7 @@ CMenuPanel *TeamFortressViewport::CreateTextWindow(int iTextToShow)
 // VGUI Menus
 void TeamFortressViewport::ShowVGUIMenu(int iMenu)
 {
-	startdbg;
+	
 	dbg("TeamFortressViewport::ShowVGUIMenu - Begin");
 	CMenuPanel *pNewMenu = NULL;
 
@@ -1625,7 +1625,7 @@ void TeamFortressViewport::CreateStoreMenu()
 }
 void TeamFortressViewport::CreateVGUIMenus()
 {
-	startdbg;
+	
 
 	m_Menus.add(m_pHUDPanel = CreateHUDPanel(this)); // Create the HUD panel
 

@@ -202,7 +202,7 @@ bool CGenericItem::Attack_CanAttack()
 //Can be called with a parameter to force an attack
 bool CGenericItem::StartAttack(int ForceAttackNum)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 #ifdef VALVE_DLL
@@ -400,7 +400,7 @@ bool CGenericItem::StartAttack(int ForceAttackNum)
 //Attack - Called every frame to continue an attack
 void CGenericItem::Attack()
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	if (!m_pOwner || !CurrentAttack)
@@ -662,7 +662,7 @@ void CGenericItem::CancelAttack()
 }
 void CGenericItem::ItemPostFrame()
 {
-	startdbg;
+	
 
 	dbg("Begin");
 
@@ -865,7 +865,7 @@ void CGenericItem::StrikeHold()
 //Uses ammo.  Projectiles or MP
 bool CGenericItem::UseAmmo(int iAmt)
 {
-	startdbg;
+	
 	dbg("Begin");
 	if (!m_pOwner || !CurrentAttack)
 		return false;
@@ -1178,7 +1178,7 @@ void CGenericItem::OwnerTakeDamage(damage_t &Damage)
 
 /*CBaseEntity *DoDamage( damage_t &Damage )
 {
-	startdbg;
+	
 	dbg( "Begin" );
 
 	//Old DoDamage parameters
@@ -1509,7 +1509,7 @@ CBaseEntity *DoDamage(damage_t &Damage, CBaseEntity *pTarget);
 
 void DoDamage(damage_t &Damage, hitent_list &Hits)
 {
-	startdbg;
+	
 	//Find all valid targets
 	//If AOE, hit all targets in area
 	//If non-AOE, just hit the closest one in front of me
@@ -1634,7 +1634,7 @@ void DoDamage(damage_t &Damage, hitent_list &Hits)
 //MIB MAR2008a - massive changes
 CBaseEntity *DoDamage(damage_t &Damage, CBaseEntity *pTarget)
 {
-	startdbg;
+	
 	dbg("Hit Target");
 
 	if (FBitSet(Damage.iDamageType, DMG_NONE))

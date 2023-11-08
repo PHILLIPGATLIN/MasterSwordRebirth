@@ -438,7 +438,7 @@ DLL_GLOBAL bool g_fInPrecache = false; //Used in CWorld::Precache and CMSMonster
 
 void CWorld ::Precache(void)
 {
-	startdbg;
+	
 
 	g_fInPrecache = true;
 

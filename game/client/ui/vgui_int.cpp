@@ -83,7 +83,7 @@ void *VGui_GetPanel()
 
 void VGui_Startup()
 {
-	startdbg;
+	
 	if (!CRender::CheckOpenGL()) //This exits if not in OpenGL mode
 		return;
 

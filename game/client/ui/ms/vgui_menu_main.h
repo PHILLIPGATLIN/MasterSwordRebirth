@@ -24,7 +24,7 @@ public:
 
 	VGUI_MenuMain(Panel *pParent) : VGUI_MenuBase(pParent)
 	{
-		startdbg;
+		
 
 		m_Name = "main";
 

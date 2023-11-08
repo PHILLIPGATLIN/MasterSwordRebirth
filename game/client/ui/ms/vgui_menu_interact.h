@@ -36,7 +36,7 @@ public:
 
 	VGUI_MenuInteract(Panel *pParent) : VGUI_MenuBase(pParent)
 	{
-		startdbg;
+		
 
 		m_Name = INTERACT_MENU_NAME;
 

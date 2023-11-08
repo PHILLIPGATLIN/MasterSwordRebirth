@@ -403,7 +403,7 @@ CMenuPanel *CreateNewCharacterPanel( )
 }
 CNewCharacterPanel::CNewCharacterPanel( int iTrans, int iRemoveMe, int x, int y, int wide,int tall ) : CMenuPanel( 0, TRUE, x, y, wide, tall )
 {
-	startdbg;
+	
 	dbg( "Begin" );
 
 	SetBits( m_Flags, MENUFLAG_TRAPNUMINPUT );
@@ -672,7 +672,7 @@ CNewCharacterPanel::CNewCharacterPanel( int iTrans, int iRemoveMe, int x, int y,
 // Update
 void CNewCharacterPanel::Update( )
 {
-	startdbg;
+	
 	//Put my character header info into a global structure, so the choose character panel knows what's what.
 	//If client-side characters, load the data from file right now
 	//If server-side characters, then the data is loaded via Server Msg "CharInfo" before this is ever called
@@ -873,7 +873,7 @@ void CNewCharacterPanel::Think( )
 
 bool CNewCharacterPanel::KeyInput( int down, int keynum, const char *pszCurrentBinding ) 
 {
-	startdbg;
+	
 	switch( m_Stage )
 	{
 	case STG_CHOOSEGENDER:
@@ -904,7 +904,7 @@ void CNewCharacterPanel::Close( void )
 
 	//Note - I stopped deleting the resources... it seems to crash HL much later on
 
-	startdbg;
+	
 	dbg( "Begin" );
 	MSCLGlobals::CharPanelActive = false;
 
@@ -1019,7 +1019,7 @@ bool CNewCharacterPanel::SlotInput( int iSlot )
 
 void CNewCharacterPanel::Open( void )
 {
-	startdbg;
+	
 	m_Stage = STG_CHOOSECHAR;
 	MSCLGlobals::CharPanelActive = true;
 
@@ -1058,7 +1058,7 @@ void CNewCharacterPanel::Open( void )
 //-----------------------------------------------------------------------------
 void CNewCharacterPanel::Initialize( void )
 {
-	startdbg;
+	
 	setVisible( false );
 	m_pScrollPanel->setScrollValue( 0, 0 );
 
@@ -1092,7 +1092,7 @@ void __CmdFunc_PlayerChooseChar( )
 
 int __MsgFunc_CharInfo(const char* pszName, int iSize, void* pbuf)
 {
-	startdbg;
+	
 	dbg("Begin");
 	BEGIN_READ(pbuf, iSize);
 
@@ -1219,7 +1219,7 @@ void CRenderChar::Init( int Idx, msstring model )
 
 void CRenderChar::Render( )
 {
-	startdbg;
+	
 
 	if( !MSCLGlobals::CharPanelActive )
 		return;
@@ -1443,7 +1443,7 @@ void CRenderSpawnbox::Init( )
 }
 void CRenderSpawnbox::Render( )
 {
-	startdbg;
+	
 	Vector vForward, vRight, vUp;
 	EngineFunc::MakeVectors( ViewMgr.Angles, vForward, vRight, vUp );
 	m_Ent.origin = ViewMgr.Origin;

@@ -729,7 +729,7 @@ bool CMirror::Vis_Surface() //Check if the camera is close enough to the mirror
 
 void CMirror::RenderMirroredWorld(int RecurseCall)
 {
-	startdbg;
+	
 
 	CMirror &Mirror = *this;
 	if (RecurseCall >= 2)
@@ -1129,7 +1129,7 @@ bool IsBoundsVisible(cl_entity_t *pWorldEntity, mleaf_t *pStartLeaf, Vector Boun
 
 bool Mirror_DrawSurface(TraverseInfo_t &Info, msurface_t *pSurface)
 {
-	startdbg;
+	
 
 	//If it's the original glass texture, don't draw
 	msurface_t &Surface = *pSurface;

@@ -225,7 +225,7 @@ void MSWorldSpawn()
 //Called every frame
 void MSGameThink()
 {
-	startdbg;
+	
 	dbg("Call FnDataHandler::Think");
 	FnDataHandler::Think();
 	enddbg;
@@ -236,7 +236,7 @@ void MSGameThink()
 #define WORLD_MAX 6000
 void MSGameEnd()
 {
-	startdbg;
+	
 	
 	if(MSGlobals::GameScript)
 	{

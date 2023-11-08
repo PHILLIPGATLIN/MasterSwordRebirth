@@ -441,7 +441,7 @@ void CMSMonster ::DropAllItems()
 
 bool CMSMonster::CreateStats()
 {
-	startdbg;
+	
 	if (m_StatsCreated)
 		return true;
 

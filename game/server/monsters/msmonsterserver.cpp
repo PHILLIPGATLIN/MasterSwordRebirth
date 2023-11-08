@@ -133,7 +133,7 @@ void CMSMonster::Spawn()
 {
 	m_OldGold = 0;
 
-	//startdbg;
+	//
 	//SUB_Remove( ); return;
 	//DelayedRemove( );
 
@@ -517,7 +517,7 @@ void CMSMonster::Think()
 	if (IsAlive())
 		flInterval = StudioFrameAdvance();
 
-	startdbg; //MAR2008b - Skipping StudioFrameAdvance errors for now
+	 //MAR2008b - Skipping StudioFrameAdvance errors for now
 
 	dbg("m_pfnThink");
 
@@ -907,7 +907,7 @@ void CMSMonster::Look()
 }
 void CMSMonster::ListenForSound()
 {
-	startdbg;
+	
 
 	if (gpGlobals->time < m_ListenTime)
 		return;
@@ -1050,7 +1050,7 @@ void CMSMonster::SetMoveDest()
 }
 void CMSMonster::SetWanderDest()
 {
-	startdbg;
+	
 	//No enemy, walk around randomly (here m_vecEnemyLKP is the random place to walk)
 	if (!HasConditions(MONSTER_ROAM))
 		return;
@@ -1157,7 +1157,7 @@ void CMSMonster::SetWanderDest()
 Vector StartAng;
 void CMSMonster::Move(float flInterval)
 {
-	startdbg;
+	
 	int Side[2] = { 1, -1 };
 
 	if (pev->movetype == MOVETYPE_FOLLOW || pev->movetype == MOVETYPE_NONE)
@@ -2001,7 +2001,7 @@ float CMSMonster::Give(givetype_e Type, float Amt)
 // Set the activity based on an event or current state
 void CMSMonster::SetAnimation(MONSTER_ANIM AnimType, const char* pszAnimName, void* vData)
 {
-	startdbg;
+	
 
 	if (m_Brush)
 		return;
@@ -2083,7 +2083,7 @@ void CMSMonster::BreakAnimation(MONSTER_ANIM AnimType, const char* pszAnimName, 
 {
 	//Thothie - Attempting to stop msdll from breaking anims
 
-	startdbg;
+	
 
 	if (m_Brush)
 		return;
@@ -2150,7 +2150,7 @@ void CMSMonster::Attacked(CBaseEntity* pAttacker, damage_t& Damage)
 //MiB MAR2008a multiple changes
 float CMSMonster::TraceAttack(damage_t& Damage)
 {
-	startdbg;
+	
 
 	//CBaseMonster::TraceAttack( pevAttacker, flDamage, vecDir, ptr, bitsDamageType );
 
@@ -2347,7 +2347,7 @@ int CMSMonster::TakeDamage(entvars_t* pevInflictor, entvars_t* pevAttacker, floa
 	//		m_hEnemy.Set( pevAttacker->pContainingEntity );
 
 	//if( pevAttacker == pev ) return fTookDamage;
-	//startdbg;
+	//
 	//dbg( "Begin" );
 	CBaseEntity* pInflictor = NULL, * pAttacker = NULL;
 	if (!FNullEnt(pevInflictor))
@@ -2441,7 +2441,7 @@ void CMSMonster::CounterEffect(CBaseEntity* pInflictor, int iEffect, void* pExtr
 
 void CMSMonster::Killed(entvars_t* pevAttacker, int iGib)
 {
-	startdbg;
+	
 	dbg("Begin");
 	BOOL DeleteMe = TRUE;
 
@@ -2853,7 +2853,7 @@ void CMSMonster::SetSpeed()
 //Opens interact menu from server
 void CMSMonster::OpenMenu(CBasePlayer* pPlayer)
 {
-	startdbg;
+	
 	m_MenuCurrentOptions = NULL;
 
 	dbg("PrepClient");

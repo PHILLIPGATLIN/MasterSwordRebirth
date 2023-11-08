@@ -186,7 +186,7 @@ public:
 
 	VGUI_Status(Panel *pParent) : Panel(0, 0, ScreenWidth, ScreenHeight)
 	{
-		startdbg;
+		
 		StatusIcons = this;
 
 		dbg("Begin");
@@ -353,7 +353,7 @@ void KillAll()
 //This is where the hud.xxxx messages from the client comes in
 int __MsgFunc_StatusIcons(const char *pszName, int iSize, void *pbuf)
 {
-	startdbg;
+	
 	dbg("Reading..");
 	BEGIN_READ(pbuf, iSize);
 	int Type = READ_SHORT();

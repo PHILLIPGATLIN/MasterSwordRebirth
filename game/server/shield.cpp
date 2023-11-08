@@ -8,7 +8,7 @@
 
 void MSTraceLine(const Vector &vecSrc, const Vector &vecEnd, IGNORE_MONSTERS igmon, edict_t *pentIgnore, TraceResult &tr, int flags)
 {
-	startdbg; //Do exception handling on the traceline so if it fails
+	 //Do exception handling on the traceline so if it fails
 	bool fSolidShields = FBitSet(flags, MSTRACE_SOLIDSHIELDS) ? true : false;
 	bool fEnlargeboxes = FBitSet(flags, MSTRACE_LARGEHITBOXES) ? true : false;
 	bool fEnableCorpses = FBitSet(flags, MSTRACE_HITCORPSES) ? true : false;
@@ -22,7 +22,7 @@ void MSTraceLine(const Vector &vecSrc, const Vector &vecEnd, IGNORE_MONSTERS igm
 
 void G_SolidifyEnts(bool fEnable, bool fSolidShields, bool fEnableCorpses, bool fEnlargeboxes)
 {
-	startdbg;
+	
 	dbg("Begin");
 	//Make corpses solid here too...
 	CBaseEntity *pEnt = NULL;

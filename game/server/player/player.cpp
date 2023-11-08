@@ -573,7 +573,7 @@ entvars_t *g_pevLastInflictor; // Set in combat.cpp.  Used to pass the damage in
 
 void CBasePlayer::Killed(entvars_t *pevAttacker, int iGib)
 {
-	startdbg;
+	
 	UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("%s has fallen!", DisplayName()));
 
 	//	if( AwardFrags )
@@ -1488,7 +1488,7 @@ void SetKeys(CBasePlayer *pPlayer);
 
 void CBasePlayer::PreThink(void)
 {
-	startdbg;
+	
 
 	dbg("Begin");
 
@@ -2075,7 +2075,7 @@ void CBasePlayer ::UpdatePlayerSound(void)
 
 void CBasePlayer::PostThink()
 {
-	startdbg;
+	
 	postthinkdbg("Begin");
 
 	if (g_fGameOver)
@@ -2575,7 +2575,7 @@ LINK_ENTITY_TO_CLASS(ms_player_begin, CSpawnPointBegin);
 
 void CBasePlayer::Spawn(void)
 {
-	startdbg;
+	
 
 	dbg("Call Precache");
 	//Master Sword spawn code
@@ -2930,7 +2930,7 @@ void CBasePlayer::Spawn(void)
 bool CBasePlayer::MoveToSpawnSpot()
 {
 	CBaseEntity *pSpawnSpot = NULL;
-	startdbg;
+	
 
 	dbg("Call FindSpawnSpot");
 
@@ -3632,7 +3632,7 @@ extern cvar_t ms_serverchar;
 
 void CBasePlayer::UpdateClientData(void)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	bool fConnectedThisFrame = false;
@@ -6328,7 +6328,7 @@ void CBasePlayer::SetQuest(bool SetData, msstring_ref Name, msstring_ref Data)
 
 bool CBasePlayer::RestoreAllServer(void *pData, ulong Size)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	logfile << Logger::LOG_INFO << "Load Character: " << DisplayName() << "\n";

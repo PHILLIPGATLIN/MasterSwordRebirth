@@ -532,7 +532,7 @@ BOOL CanAttack(float attack_time, float curtime, BOOL isPredicted)
 }
 void CBasePlayerItem::ItemPostFrame(void)
 {
-	startdbg;
+	
 
 	dbg("Begin");
 

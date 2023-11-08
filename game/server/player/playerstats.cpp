@@ -147,7 +147,7 @@ std::tuple<bool, int> CBasePlayer::LearnSkill(int iStat, int iStatType, int Enem
 			ALERT(at_console, "Gained XP: %i in skill %s %s \n", EnemySkillLevel, SkillStatList[iStatIdx].Name, SkillTypeList[iBestSubstatId]); //Thothie returns XP gained by monsters
 		if (std::get<0>(tbiSuccess))
 		{
-			startdbg;
+			
 			hudtextparms_t htp;
 			memset(&htp, 0, sizeof(hudtextparms_t));
 			htp.x = 0.02;

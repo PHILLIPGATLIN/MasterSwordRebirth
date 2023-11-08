@@ -3546,7 +3546,7 @@ and client.  This will ensure that prediction behaves appropriately.
 void PM_Move(struct playermove_s *ppmove, int server)
 {
 	
-	startdbg;
+	
 
 	assert(pm_shared_initialized);
 
@@ -3595,7 +3595,7 @@ extern "C" int PM_GetPhysEntInfo(int ent)
 void PM_Init(struct playermove_s *ppmove)
 {
 	
-	startdbg;
+	
 	dbg("Begin()");
 
 	assert(!pm_shared_initialized);

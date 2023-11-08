@@ -151,7 +151,7 @@ void Player_DoJump()
 
 void CBasePlayer::Think(void)
 {
-	startdbg;
+	
 
 	dbg("Begin");
 	cl_entity_s* clplayer = gEngfuncs.GetLocalPlayer();
@@ -541,7 +541,7 @@ Run ItemPostFrame() as nessesary
 */
 void HUD_WeaponsPostThink(local_state_s* from, local_state_s* to, usercmd_t* cmd, double time, unsigned int random_seed)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	if (player.m_CharacterState == CHARSTATE_UNLOADED)
@@ -699,7 +699,7 @@ be ignored
 void _DLLEXPORT HUD_PostRunCmd(struct local_state_s* from, struct local_state_s* to, struct usercmd_s* cmd, int runfuncs, double time, unsigned int random_seed)
 {
 	
-	startdbg;
+	
 	g_runfuncs = runfuncs;
 
 	// Only run post think on client-predicted frames, not the server
@@ -764,7 +764,7 @@ void __CmdFunc_PlayerDesc(void)
 //Handles all inventory messages
 int __MsgFunc_Item(const char* pszName, int iSize, void* pbuf)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	BEGIN_READ(pbuf, iSize);
@@ -1304,7 +1304,7 @@ bool ShowChat() { return true; } //Always show chat
 
 int __MsgFunc_Hands(const char* pszName, int iSize, void* pbuf)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	BEGIN_READ(pbuf, iSize);
@@ -1323,7 +1323,7 @@ extern float g_fMenuLastClosed;
 
 int __MsgFunc_CLDllFunc(const char* pszName, int iSize, void* pbuf)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	BEGIN_READ(pbuf, iSize);

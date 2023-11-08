@@ -130,7 +130,7 @@ bool chardata_t::ReadData(void *pData, ulong Size)
 {
 	bool ValidVersion = false;
 
-	startdbg;
+	
 	dbg("Begin");
 
 	CPlayer_DataBuffer m_File(Size);

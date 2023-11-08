@@ -515,7 +515,7 @@ bool CPanel_Options::SlotInput(int iSlot)
 
 void CPanel_Options::Open(option_e OptionScreen)
 {
-	startdbg;
+	
 
 	dbg("Call Reset");
 	Reset();

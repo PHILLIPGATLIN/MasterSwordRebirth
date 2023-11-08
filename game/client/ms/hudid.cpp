@@ -60,7 +60,7 @@ void CHudID ::InitHUDData(void)
 
 int CHudID::Draw(float flTime)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	if (!FBitSet(m_iFlags, HUD_ACTIVE) || !ShowHUD())
@@ -146,7 +146,7 @@ void CHudID::SearchThink()
 //		byte   : Relative entity alignment (Neutral, Friendly, Hostile)
 int CHudID::MsgFunc_EntInfo(const char *pszName, int iSize, void *pbuf)
 {
-	startdbg;
+	
 	dbg("Begin");
 	BEGIN_READ(pbuf, iSize);
 

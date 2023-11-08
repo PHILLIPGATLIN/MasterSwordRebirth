@@ -149,7 +149,7 @@ HLSPRITE CHudMisc::GetCrosshairSprite(int type)
 
 void CHudMisc::Think(void)
 {
-	startdbg;
+	
 	//SaveCharSend(); //Done every frame so I can retry the connect
 
 	//Handle character upload to server
@@ -188,7 +188,7 @@ void CHudMisc ::UserCmd_ChangeSayType(void)
 
 void CHudMisc ::UserCmd_RemovePack(void)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	//Menu is already on, turn it off
@@ -295,7 +295,7 @@ void CHudMisc::SelectMenuItem(int idx, TCallbackMenu *pcbMenu)
 
 void CHudMisc ::UserCmd_Offer(void)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	//Menu is already on, turn it off
@@ -354,7 +354,7 @@ void CHudMisc ::UserCmd_Offer(void)
 
 void CHudMisc ::UserCmd_Accept(void)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	//Override 'accept' for when entering gold amounts

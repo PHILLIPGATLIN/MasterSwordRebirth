@@ -306,7 +306,7 @@ BOOL CBaseMonster ::FValidateHintType(short sHint)
 void CBaseMonster ::Look(int iDistance)
 {
 
-	//startdbg;
+	//
 
 	int iSighted = 0;
 

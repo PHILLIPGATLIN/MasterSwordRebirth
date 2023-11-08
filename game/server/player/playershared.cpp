@@ -243,7 +243,7 @@ void CBasePlayer::DeleteStats()
 //Called once on startup on both client & server
 void CBasePlayer::InitialSpawn(void)
 {
-	startdbg;
+	
 
 	if (m_Initialized)
 		return;
@@ -725,7 +725,7 @@ bool CBasePlayer::PutInAnyPack(CGenericItem* pItem, bool bVerbose)
 
 bool CBasePlayer::UseItem(int iHand, bool bVerbose)
 {
-	startdbg;
+	
 
 	//bVerbose == true print all failure messages
 	int iUseHand = 0;

@@ -334,7 +334,7 @@ int CGenericItem::Container_AddItem(CGenericItem *pItem)
 	if (!Container_CanAcceptItem(pItem))
 		return 0;
 
-	startdbg;
+	
 
 	/*
 	//Thothie MAR2010_15 - trying to restore stackable stacks sans char corruption

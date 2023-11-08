@@ -386,7 +386,7 @@ void VGUI_ContainerPanel::Update()
 }
 void VGUI_ContainerPanel::AddInventoryItems()
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	gearitem_t GearItem;

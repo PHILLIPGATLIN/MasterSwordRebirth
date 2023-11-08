@@ -408,7 +408,7 @@ void UTIL_MoveToOrigin(edict_t *pent, const Vector &vecGoal, float flDist, int i
 
 int UTIL_EntitiesInBox(CBaseEntity **pList, int listMax, const Vector &mins, const Vector &maxs, int flagMask, int startIndex)
 {
-	//startdbg;
+	//
 
 	//dbg("Recursion check"); //temporary
 	if (startIndex >= gpGlobals->maxEntities) //End recursion if you have no more entities to search (shouldn't happen anyway) MiB Feb2008a

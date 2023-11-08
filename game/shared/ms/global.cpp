@@ -80,7 +80,7 @@ msstringlist vote_t::VotesTypesAllowed; //All The vote types allowed
 //The server calls this every map change, at CWorld::Precache
 void MSGlobalItemInit()
 {
-	startdbg;
+	
 	dbg("Begin");
 	MSGlobals::InPrecache = true;
 
@@ -184,7 +184,7 @@ void MSGlobals::EndMap()
 
 void MSGlobals::SharedThink()
 {
-	startdbg;
+	
 
 	dbg("Call MSGlobals->GameScript->Think");
 	if (MSGlobals::GameScript)
@@ -421,7 +421,7 @@ static msstringlist Parameters; //made static, for speed
 
 void CScriptedEnt::Spawn()
 {
-	startdbg;
+	
 	dbg("Begin");
 	StoreEntity(this, ENT_ME);
 	m_HandleThink = true;
@@ -439,7 +439,7 @@ void CScriptedEnt::Spawn()
 }
 void CScriptedEnt::Think()
 {
-	startdbg;
+	
 	dbg("CScriptedEnt::Think - Begin");
 
 	edict_t *pEdict = edict();
@@ -487,7 +487,7 @@ void CScriptedEnt::Blocked(CBaseEntity *pOther)
 }
 void CScriptedEnt::Use(CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	if (m_pfnUse)
@@ -503,7 +503,7 @@ void CScriptedEnt::Use(CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE u
 }
 void CScriptedEnt::KeyValue(KeyValueData *pkvd)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	if (!pkvd->fHandled && !strcmp(pkvd->szKeyName, "scriptname"))
@@ -519,7 +519,7 @@ void CScriptedEnt::KeyValue(KeyValueData *pkvd)
 }
 void CScriptedEnt::Deactivate()
 {
-	startdbg;
+	
 	dbg("CScriptedEnt::Deactivate - Begin");
 
 	CBaseEntity::Deactivate();

@@ -40,7 +40,7 @@ int CHudAction::Init(void)
 
 int CHudAction::MsgFunc_Action(const char *pszName, int iSize, void *pbuf)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	byte AddOrRemove = READ_BYTE();

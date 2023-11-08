@@ -4947,7 +4947,7 @@ bool CScript::Spawn(string_i Filename, CBaseEntity* pScriptedEnt, IScripted* pSc
 
 void CScript::RunScriptEvents(bool fOnlyRunNamedEvents)
 {
-	startdbg;
+	
 	dbg("Proc_Events");
 	//Run script events
 	//~ Runs unnamed events or named events that were specified with calleventtimed ~
@@ -5068,7 +5068,7 @@ void CScript::CallLogged(msstring_ref title, std::clock_t start)
 
 bool CScript::ParseScriptFile(const char* pszScriptData)
 {
-	startdbg;
+	
 
 	dbg("Begin");
 	if (!m.ScriptFile.len() || !pszScriptData)
@@ -5151,7 +5151,7 @@ bool CScript::ParseScriptFile(const char* pszScriptData)
 //returns: 0 - failed, 1 - done, 2 - not done yet.
 // int CScript::NewParseLine(std::string &pszCommandLine, int LineNum, SCRIPT_EVENT **pCurrentEvent, scriptcmd_list **pCurrentCmds, ::mslist<scriptcmd_list *> &ParentCmds)
 // {
-// 	//startdbg;
+// 	//
 // 	//dbg("Begin");
 
 // 	//Log("Parse: %s", pszCommandLine.c_str());
@@ -5792,7 +5792,7 @@ bool CScript::ParseScriptFile(const char* pszScriptData)
 int CScript::ParseLine(const char* pszCommandLine /*in*/, int LineNum /*in*/, SCRIPT_EVENT** pCurrentEvent /*in/out*/,
 	scriptcmd_list** pCurrentCmds /*in/out*/, ::mslist<scriptcmd_list*>& ParentCmds /*in/out*/)
 {
-	startdbg;
+	
 
 	dbg("Begin");
 

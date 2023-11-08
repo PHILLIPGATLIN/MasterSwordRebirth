@@ -63,7 +63,7 @@ int __MsgFunc_StatusIcons(const char *pszName, int iSize, void *pbuf); //Drigien
 
 int __MsgFunc_InitHUD(const char *pszName, int iSize, void *pbuf)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	logfile << Logger::LOG_INFO << "[__MsgFunc_InitHUD]\n";
@@ -504,7 +504,7 @@ float HUD_GetFOV(void);
 extern cvar_t *sensitivity;
 void CHud::Think(void)
 {
-	startdbg;
+	
 
 	dbg("Begin");
 
@@ -562,7 +562,7 @@ void CHud::Think(void)
 
 void CHud::VidInit(void)
 {
-	startdbg;
+	
 
 	dbg("Half-life Video Initialization");
 	m_scrinfo.iSize = sizeof(m_scrinfo);
@@ -764,7 +764,7 @@ float HUD_GetFOV(void)
 float ClFOV = 0; //FOV, in radians
 int CHud::MsgFunc_SetFOV(const char *pszName, int iSize, void *pbuf)
 {
-	startdbg;
+	
 	dbg("Begin");
 
 	BEGIN_READ(pbuf, iSize);

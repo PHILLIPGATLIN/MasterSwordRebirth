@@ -162,7 +162,7 @@ int DispatchSpawn(edict_t *pent)
 
 	CBaseEntity *pSound = UTIL_FindEntityByClassname(NULL, "soundent");
 
-	startdbg;
+	
 	msstring classname = STRING(pent->v.classname);
 
 	//Set_DispatchSpawnDbg( "Begin" );
@@ -226,7 +226,7 @@ void DispatchKeyValue(edict_t *pentKeyvalue, KeyValueData *pkvd)
 {
 	
 
-	startdbg;
+	
 	dbg("DispatchKeyValue - Begin");
 	if (!pkvd || !pentKeyvalue)
 		return;
@@ -289,7 +289,7 @@ void DispatchUse(edict_t *pentUsed, edict_t *pentOther)
 void DispatchThink(edict_t *pent)
 {
 	//
-	//startdbg;
+	//
 
 	//dbg( "Begin" );
 	CBaseEntity *pEntity = (CBaseEntity *)GET_PRIVATE(pent);
@@ -321,7 +321,7 @@ void DispatchThink(edict_t *pent)
 void DispatchBlocked(edict_t *pentBlocked, edict_t *pentOther)
 {
 	
-	startdbg;
+	
 	dbg("Begin");
 	CBaseEntity *pEntity = (CBaseEntity *)GET_PRIVATE(pentBlocked);
 	CBaseEntity *pOther = (CBaseEntity *)GET_PRIVATE(pentOther);
@@ -494,7 +494,7 @@ int DispatchRestore(edict_t *pent, SAVERESTOREDATA *pSaveData, int globalEntity)
 
 void DispatchObjectCollsionBox(edict_t *pent)
 {
-	startdbg;
+	
 	dbg("Begin");
 	CBaseEntity *pEntity = (CBaseEntity *)GET_PRIVATE(pent);
 	if (pEntity)
