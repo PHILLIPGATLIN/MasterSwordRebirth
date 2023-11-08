@@ -110,7 +110,7 @@ void MSGlobalItemInit()
 
 	MSGlobals::InPrecache = false;
 
-	enddbg;
+	
 }
 
 //Called on client & server when a new map is loaded
@@ -192,7 +192,7 @@ void MSGlobals::SharedThink()
 
 	MemMgr::Think();
 
-	enddbg;
+	
 }
 
 //Called on client & server when the dll is loaded
@@ -435,7 +435,7 @@ void CScriptedEnt::Spawn()
 		CallScriptEvent("game_spawn"); //not called by players (dunno about monsters)
 	}
 
-	enddbg;
+	
 }
 void CScriptedEnt::Think()
 {
@@ -455,7 +455,7 @@ void CScriptedEnt::Think()
 
 	CallScriptEvent("game_think");
 
-	enddbg;
+	
 }
 
 void CScriptedEnt::Touch(CBaseEntity *pOther)
@@ -499,7 +499,7 @@ void CScriptedEnt::Use(CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE u
 	Parameters.add(UTIL_VarArgs("%i", useType));
 	Parameters.add(UTIL_VarArgs("%f", value));
 	CallScriptEvent("game_used", &Parameters);
-	enddbg;
+	
 }
 void CScriptedEnt::KeyValue(KeyValueData *pkvd)
 {
@@ -515,7 +515,7 @@ void CScriptedEnt::KeyValue(KeyValueData *pkvd)
 	else
 		pkvd->fHandled = FALSE;
 
-	enddbg;
+	
 }
 void CScriptedEnt::Deactivate()
 {
@@ -525,7 +525,7 @@ void CScriptedEnt::Deactivate()
 	CBaseEntity::Deactivate();
 	IScripted::Deactivate();
 
-	enddbg;
+	
 }
 /*
 ======================

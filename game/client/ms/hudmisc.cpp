@@ -156,7 +156,7 @@ void CHudMisc::Think(void)
 	dbg("Think_SendCharData");
 	MSChar_Interface::Think_SendChar(&player);
 
-	enddbg;
+	
 }
 
 void CHudMisc ::UserCmd_ChangeSayType(void)
@@ -236,7 +236,7 @@ void CHudMisc ::UserCmd_RemovePack(void)
 	else
 		player.SendEventMsg(HUDEVENT_UNABLE, "You are not wearing anything\n");
 
-	enddbg;
+	
 }
 
 void CHudMisc::SelectMenuItem(int idx, TCallbackMenu *pcbMenu)
@@ -349,7 +349,7 @@ void CHudMisc ::UserCmd_Offer(void)
 
 	strncat(MenuText, "\n(Press 'offer' again to cancel)\n", 35);
 	gHUD.m_Menu->ShowMenu(iBitsValid, MenuText, CHudMisc_SelectMenuItem, MENU_OFFER);
-	enddbg;
+	
 }
 
 void CHudMisc ::UserCmd_Accept(void)
@@ -376,7 +376,7 @@ void CHudMisc ::UserCmd_Accept(void)
 	}
 
 	ServerCmd("accept\n");
-	enddbg;
+	
 }
 /*void CHudMisc :: UserCmd_ListSkills( void )
 {

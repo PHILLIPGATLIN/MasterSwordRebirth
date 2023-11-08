@@ -457,8 +457,6 @@ int UTIL_EntitiesInBox(CBaseEntity **pList, int listMax, const Vector &mins, con
 
 	return count;
 
-	//enddbg; //temporary
-
 	//return -1; //temporary
 }
 

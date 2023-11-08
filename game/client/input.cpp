@@ -242,7 +242,7 @@ struct kbutton_s DLLEXPORT *KB_Find(const char *name)
 
 		p = p->next;
 	}
-	enddbg;
+	
 	return NULL;
 }
 
@@ -398,7 +398,7 @@ int DLLEXPORT HUD_Key_Event(int down, int keynum, const char *pszCurrentBinding)
 	if (gViewPort)
 		return gViewPort->KeyInput(down, keynum, pszCurrentBinding);
 
-	enddbg;
+	
 	return 1;
 }
 
@@ -885,7 +885,7 @@ void DLLEXPORT CL_CreateMove(float frametime, struct usercmd_s *cmd, int active)
 	VectorCopy(viewangles, cmd->viewangles);
 	VectorCopy(viewangles, oldangles);
 
-	enddbg;
+	
 }
 
 /*

@@ -114,7 +114,7 @@ CSpawnPanel::CSpawnPanel(Panel *pParent) : CMenuPanel(1, false, 0, 0, ScreenWidt
 	m_Message->setVisible(false);
 
 	pStatus = new CStatusBar(this, XRES(20), YRES(70), XRES(120), YRES(15));
-	enddbg;
+	
 }
 
 // Update

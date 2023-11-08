@@ -122,7 +122,7 @@ void CImageDelayed::LoadImg( )
 	}
 
 	m_ImageLoaded = true;
-	enddbg;
+	
 }
 
 void CImageDelayed::LoadImg( const char *pszImageName, bool TGAorSprite, bool Delayed )
@@ -137,7 +137,7 @@ void CImageDelayed::LoadImg( const char *pszImageName, bool TGAorSprite, bool De
 	
 	if( !Delayed )
 		LoadImg( );
-	enddbg;
+	
 }
 
 void CImageDelayed::ClearImg( )
@@ -769,5 +769,5 @@ void VGUI_TextPanel::KeyInput( int down, int keynum, const char *pszCurrentBindi
 	char Temp[2] = { Char & 0xFF, '\0' };
 	AddLetter( Temp );
 
-	enddbg;
+	
 }

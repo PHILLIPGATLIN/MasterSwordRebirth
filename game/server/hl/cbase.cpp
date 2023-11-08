@@ -217,7 +217,7 @@ int DispatchSpawn(edict_t *pent)
 			}
 		}
 	}
-	enddbg;
+	
 
 	return 0;
 }
@@ -245,7 +245,7 @@ void DispatchKeyValue(edict_t *pentKeyvalue, KeyValueData *pkvd)
 		return;
 
 	pEntity->KeyValue(pkvd);
-	enddbg;
+	
 }
 
 // HACKHACK -- this is a hack to keep the node graph entity from "touching" things (like triggers)
@@ -315,7 +315,7 @@ void DispatchThink(edict_t *pent)
 		//Set_DispatchThinkDbg( "Call Think" );
 		pEntity->Think();
 	}
-	//enddbg;
+	//
 }
 
 void DispatchBlocked(edict_t *pentBlocked, edict_t *pentOther)
@@ -329,7 +329,7 @@ void DispatchBlocked(edict_t *pentBlocked, edict_t *pentOther)
 	if (pEntity)
 		pEntity->Blocked(pOther);
 
-	enddbg;
+	
 }
 
 void DispatchSave(edict_t *pent, SAVERESTOREDATA *pSaveData)
@@ -504,7 +504,7 @@ void DispatchObjectCollsionBox(edict_t *pent)
 	else
 		SetObjectCollisionBox(&pent->v);
 
-	enddbg;
+	
 }
 
 void SaveWriteFields(SAVERESTOREDATA *pSaveData, const char *pname, void *pBaseData, TYPEDESCRIPTION *pFields, int fieldCount)

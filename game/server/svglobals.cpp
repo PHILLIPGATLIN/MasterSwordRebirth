@@ -228,7 +228,7 @@ void MSGameThink()
 	
 	dbg("Call FnDataHandler::Think");
 	FnDataHandler::Think();
-	enddbg;
+	
 }
 
 //Called when the map changes or server is shutdown from ServerDeactivate
@@ -319,7 +319,7 @@ void MSGameEnd()
 	//Note: any attempts to access allocated strings between now and the next map start will fail and probably cause crashes.
 	ClearStringPool();
 
-	enddbg;
+	
 }
 
 void SendHUDMsgAll(msstring_ref Title, msstring_ref Text)

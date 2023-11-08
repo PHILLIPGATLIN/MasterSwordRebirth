@@ -446,7 +446,7 @@ void DLLEXPORT CAM_Think(void)
 	cam_ofs[ 2 ] = camAngles[ 2 ];//dist;*/
 	cam_ofs = camAngles;
 
-	enddbg;
+	
 }
 
 extern void KeyDown(kbutton_t *b); // HACK

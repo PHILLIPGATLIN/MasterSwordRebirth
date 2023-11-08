@@ -167,7 +167,7 @@ bool chardata_t::ReadData(void *pData, ulong Size)
 	} while (!m_File.Eof());
 
 	m_File.Close();
-	enddbg;
+	
 
 	return ValidVersion;
 }

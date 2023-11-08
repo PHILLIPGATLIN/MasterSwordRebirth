@@ -889,7 +889,7 @@ void CFuncRotating ::RotatingUse(CBaseEntity *pActivator, CBaseEntity *pCaller, 
 			Rotate();
 		}
 	}
-	enddbg;
+	
 }
 
 //

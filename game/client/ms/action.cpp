@@ -72,7 +72,7 @@ int CHudAction::MsgFunc_Action(const char *pszName, int iSize, void *pbuf)
 			}
 	}
 
-	enddbg;
+	
 	return 1;
 }
 void CHudAction::UserCmd_Action(void)

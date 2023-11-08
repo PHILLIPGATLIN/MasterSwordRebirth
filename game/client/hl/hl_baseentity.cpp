@@ -85,7 +85,7 @@ void CBaseEntity::SUB_Remove(void)
 	dbg("Delete Entity");
 	MSCLGlobals::RemoveEnt(this, true);
 
-	enddbg;
+	
 }
 //void CBaseEntity::StruckSound( CBaseEntity *pInflicter, CBaseEntity *pAttacker, float flDamage, TraceResult *ptr, int bitsDamageType ) { }
 void CBaseEntity::CounterEffect(CBaseEntity *pInflictor, int iEffect, void *pExtraData) {}

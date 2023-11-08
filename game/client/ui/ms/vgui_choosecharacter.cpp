@@ -666,7 +666,7 @@ CNewCharacterPanel::CNewCharacterPanel( int iTrans, int iRemoveMe, int x, int y,
 	fClosingMenu = false;
 	iButtons = 0;
 	m_Stage = STG_CHOOSECHAR;
-	enddbg;
+	
 }
 
 // Update
@@ -828,7 +828,7 @@ void CNewCharacterPanel::Update( )
 	if( player.m_CharacterState == CHARSTATE_UNLOADED )
 		m_pCancelButton->setVisible( false );
 	m_pScrollPanel->validate( );
-	enddbg;
+	
 }
 void CNewCharacterPanel::Gender_SelectItem( int Btn )
 {
@@ -886,7 +886,7 @@ bool CNewCharacterPanel::KeyInput( int down, int keynum, const char *pszCurrentB
 		return true;
 	}
 
-	enddbg;
+	
 
 	return false;
 }
@@ -973,7 +973,7 @@ void CNewCharacterPanel::Close( void )
 			{ gViewPort->m_Menus.erase( i ); break; }
 
 	CMenuPanel::Close( );
-	enddbg;
+	
 }
 //======================================
 // Key inputs for the Class Menu
@@ -1050,7 +1050,7 @@ void CNewCharacterPanel::Open( void )
 	dbg( "setScrollValue" );
 	m_pScrollPanel->setScrollValue( 0, 0 );
 
-	enddbg;
+	
 }
 
 //-----------------------------------------------------------------------------
@@ -1062,7 +1062,7 @@ void CNewCharacterPanel::Initialize( void )
 	setVisible( false );
 	m_pScrollPanel->setScrollValue( 0, 0 );
 
-	enddbg;
+	
 }
 
 void CNewCharacterPanel::UpdateUpload( )
@@ -1163,7 +1163,7 @@ int __MsgFunc_CharInfo(const char* pszName, int iSize, void* pbuf)
 		if (gViewPort && gViewPort->m_pCurrentMenu)
 			((CNewCharacterPanel*)gViewPort->m_pCurrentMenu)->Update();
 
-	enddbg;
+	
 	return 1;
 }
 
@@ -1357,7 +1357,7 @@ void CRenderChar::Render( )
 	//foreach( i, HUMAN_BODYPARTS )
 	//	m_Ent.SetBody( i, BodyParts[i] );
 
-	enddbg;
+	
 }
 void CRenderChar::PlayAttnAnim( )
 {
@@ -1452,7 +1452,7 @@ void CRenderSpawnbox::Render( )
 	m_Ent.curstate.origin = m_Ent.origin;
 
 	CRenderEntity::Render( );
-	enddbg;
+	
 }
 CRenderSpawnbox::~CRenderSpawnbox( )
 {

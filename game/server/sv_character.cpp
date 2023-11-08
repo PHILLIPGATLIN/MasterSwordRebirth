@@ -164,7 +164,7 @@ void chardata_t::ReadMaps1(byte DataID, CPlayer_DataBuffer &m_File)
 			m_VisitedMaps.add(cTemp);
 		}
 	}
-	enddbg;
+	
 }
 
 void chardata_t::ReadSkills1(byte DataID, CPlayer_DataBuffer &m_File)
@@ -228,7 +228,7 @@ void chardata_t::ReadSkills1(byte DataID, CPlayer_DataBuffer &m_File)
 			Stat.m_SubStats[Stat.m_SubStats.size() - 1].Value = 1;
 		}
 	}
-	enddbg;
+	
 }
 
 void chardata_t::ReadSpells1(byte DataID, CPlayer_DataBuffer &m_File)
@@ -247,7 +247,7 @@ void chardata_t::ReadSpells1(byte DataID, CPlayer_DataBuffer &m_File)
 			m_Spells.add(cTemp);
 		}
 	}
-	enddbg;
+	
 }
 
 void chardata_t::ReadItems1(byte DataID, CPlayer_DataBuffer &m_File)
@@ -269,7 +269,7 @@ void chardata_t::ReadItems1(byte DataID, CPlayer_DataBuffer &m_File)
 			m_Items.add(Item);
 		}
 	}
-	enddbg;
+	
 }
 
 void chardata_t::ReadStorageItems1(byte DataID, CPlayer_DataBuffer &m_File)
@@ -301,7 +301,7 @@ void chardata_t::ReadStorageItems1(byte DataID, CPlayer_DataBuffer &m_File)
 			m_Storages.add(Storage);
 		}
 	}
-	enddbg;
+	
 }
 
 void chardata_t::ReadCompanions1(byte DataID, CPlayer_DataBuffer &m_File)
@@ -333,7 +333,7 @@ void chardata_t::ReadCompanions1(byte DataID, CPlayer_DataBuffer &m_File)
 			}
 		}
 	}
-	enddbg;
+	
 }
 
 void chardata_t::ReadHelpTips1(byte DataID, CPlayer_DataBuffer &m_File)
@@ -351,7 +351,7 @@ void chardata_t::ReadHelpTips1(byte DataID, CPlayer_DataBuffer &m_File)
 			m_ViewedHelpTips.add(cTemp);
 		}
 	}
-	enddbg;
+	
 }
 
 void chardata_t::ReadQuests1(byte DataID, CPlayer_DataBuffer &m_File)
@@ -373,7 +373,7 @@ void chardata_t::ReadQuests1(byte DataID, CPlayer_DataBuffer &m_File)
 			m_Quests.add(Quest);
 		}
 	}
-	enddbg;
+	
 }
 
 void chardata_t::ReadQuickSlots1(byte DataID, CPlayer_DataBuffer &m_File)
@@ -408,7 +408,7 @@ void chardata_t::ReadQuickSlots1(byte DataID, CPlayer_DataBuffer &m_File)
 			m_QuickSlots.add(QuickSlot);
 		}
 	}
-	enddbg;
+	
 }
 
 bool chardata_t::ReadItem1(byte DataID, CPlayer_DataBuffer &Data, genericitem_full_t &outItem)
@@ -760,5 +760,5 @@ void MSChar_Interface::SaveChar(CBasePlayer *pPlayer, savedata_t *pData)
 	gFile.WriteToFile(pszFileName, "wb", true);
 	gFile.Close();
 
-	enddbg;
+	
 }

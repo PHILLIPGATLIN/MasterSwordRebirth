@@ -77,7 +77,7 @@ void set_suicide_frame(entvars_t *pev)
 	pev->movetype = MOVETYPE_TOSS;
 	pev->deadflag = DEAD_DEAD;
 	pev->nextthink = -1;
-	enddbg;
+	
 }
 
 clientaddr_t g_NewClients[32];
@@ -116,7 +116,7 @@ BOOL ClientConnect(edict_t *pEntity, const char *pszName, const char *pszAddress
 
 	logfile << Logger::LOG_INFO << "[ClientConnect: Complete]\n";
 
-	enddbg;
+	
 	return fSuccess ? 1 : 0;
 }
 
@@ -154,7 +154,7 @@ void ClientDisconnect(edict_t *pEntity)
 	if (g_pGameRules)
 		g_pGameRules->ClientDisconnected(pEntity);
 
-	enddbg;
+	
 }
 
 // called by ClientKill and DeadThink
@@ -164,7 +164,7 @@ void respawn(entvars_t *pev, BOOL fCopyCorpse)
 	// respawn player
 	GetClassPtr((CBasePlayer *)pev)->Spawn();
 
-	enddbg;
+	
 }
 
 /*
@@ -191,7 +191,7 @@ void ClientKill(edict_t *pEntity)
 		pPlayer->SendInfoMsg("You will die in 5 seconds...\n");
 	pPlayer->m_TimeTillSuicide = gpGlobals->time + (pPlayer->IsElite() ? 0.1f : 5.0f);
 	pPlayer->m_fNextSuicideTime = pPlayer->m_TimeTillSuicide + 5;
-	enddbg;
+	
 }
 
 /*
@@ -237,7 +237,7 @@ void ClientPutInServer(edict_t *pEntity)
 
 	// Reset interpolation during first frame
 	pPlayer->pev->effects |= EF_NOINTERP;
-	enddbg;
+	
 }
 
 #include "voice_gamemgr.h"
@@ -406,7 +406,7 @@ void ClientCommand(edict_t *pEntity)
 		return;
 	ClientCommand2(pEntity);
 	//logfile << "[CC END]\r\n";
-	enddbg;
+	
 }
 
 void ClientCommand2(edict_t *pEntity)
@@ -1633,7 +1633,7 @@ void ClientUserInfoChanged(edict_t *pEntity, char *infobuffer)
 
 	if (g_pGameRules)
 		g_pGameRules->ClientUserInfoChanged(GetClassPtr((CBasePlayer *)&pEntity->v), infobuffer);
-	enddbg;
+	
 }
 
 static int g_serveractive = 0;
@@ -1666,7 +1666,7 @@ void ServerDeactivate(void)
 	FnDataHandler::Reset();
 
 	dbg("End");
-	enddbg;
+	
 }
 
 DLL_GLOBAL extern bool g_fInPrecache; //Code called from is in CWorld::Precache
@@ -1743,7 +1743,7 @@ void ServerActivate(edict_t *pEdictList, int edictCount, int clientMax)
 	FnDataHandler::Reset();
 
 	logfile << Logger::LOG_INFO << "World Activate END\n";
-	enddbg;
+	
 }
 
 /*
@@ -1764,7 +1764,7 @@ void PlayerPreThink(edict_t *pEntity)
 	if (pPlayer)
 		pPlayer->PreThink();
 
-	enddbg;
+	
 }
 
 /*
@@ -1786,7 +1786,7 @@ void PlayerPostThink(edict_t *pEntity)
 	if (pPlayer)
 		pPlayer->PostThink();
 
-	enddbg;
+	
 }
 
 void ParmsNewLevel(void)
@@ -1829,7 +1829,7 @@ void StartFrame(void)
 	//g_iSkillLevel = CVAR_GET_FLOAT("skill");
 	g_ulFrameCount++;
 
-	enddbg;
+	
 }
 
 void ClientPrecache(void)
@@ -1946,7 +1946,7 @@ void ClientPrecache(void)
 		UTIL_PrecacheOther("monster_human_grunt");
 
 	PlayerPrecache();
-	enddbg;
+	
 }
 
 /*
@@ -2016,7 +2016,7 @@ void PlayerCustomization(edict_t *pEntity, customization_t *pCust)
 		ALERT(at_console, "PlayerCustomization:  Unknown customization type!\n");
 		break;
 	}
-	enddbg;
+	
 }
 
 /*
@@ -2116,7 +2116,7 @@ void SetupVisibility(edict_t *pViewEntity, edict_t *pClient, unsigned char **pvs
 
 	*pvs = ENGINE_SET_PVS((float *)&org);
 	*pas = ENGINE_SET_PAS((float *)&org);
-	enddbg;
+	
 }
 
 #include "entity_state.h"
@@ -2356,7 +2356,7 @@ int AddToFullPack(struct entity_state_s *state, int e, edict_t *ent, edict_t *ho
 		state->fuser1 = pPlayer->m_GaitFramerateGauge;
 	}
 
-	enddbg;
+	
 	return 1;
 }
 
@@ -2421,7 +2421,7 @@ void CreateBaseline(int player, int eindex, struct entity_state_s *baseline, str
 		baseline->gravity = entity->v.gravity;
 	}
 
-	enddbg;
+	
 }
 
 typedef struct
@@ -2784,7 +2784,7 @@ void UpdateClientData(const struct edict_s *ent, int sendweapons, struct clientd
 		cd->iuser3 = 0;
 	//---------------
 
-	enddbg;
+	
 }
 
 /*
@@ -2811,7 +2811,7 @@ void CmdStart(const edict_t *player, const struct usercmd_s *cmd, unsigned int r
 
 	pPlayer->random_seed = random_seed;
 
-	enddbg;
+	
 }
 
 /*
@@ -2835,7 +2835,7 @@ void CmdEnd(const edict_t *player)
 		UTIL_UnsetGroupTrace();
 	}
 
-	enddbg;
+	
 }
 
 /*

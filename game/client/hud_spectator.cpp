@@ -324,7 +324,7 @@ int UTIL_FindEntityInMap(char *name, float *origin, float *angle)
 			return 1;
 	}
 
-	enddbg;
+	
 	return 0; // we search all entities, but didn't found the correct
 }
 
@@ -1572,7 +1572,7 @@ void CHudSpectator::Reset()
 	memset(&m_OverviewEntities, 0, sizeof(m_OverviewEntities));
 
 	SetSpectatorStartPosition();
-	enddbg;
+	
 }
 
 void CHudSpectator::InitHUDData()

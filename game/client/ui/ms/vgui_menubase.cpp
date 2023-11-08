@@ -129,7 +129,7 @@ void VGUI_MenuBase::Init()
 	pSpacer->setParent( m_pMainPanel );
 	*/
 
-	enddbg;
+	
 }
 
 MSButton *VGUI_MenuBase::AddButton(msstring_ref Name, int Width, msvariant ID)

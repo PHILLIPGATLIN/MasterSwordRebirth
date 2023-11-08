@@ -17,7 +17,7 @@ void MSTraceLine(const Vector &vecSrc, const Vector &vecEnd, IGNORE_MONSTERS igm
 	dbg("Call UTIL_TraceLine");
 	UTIL_TraceLine(vecSrc, vecEnd, dont_ignore_monsters, pentIgnore, &tr); //At least the objects' bboxes will be cleaned up
 	//G_SolidifyEnts( false, fSolidShields, fEnableCorpses, fEnlargeboxes );
-	enddbg;
+	
 }
 
 void G_SolidifyEnts(bool fEnable, bool fSolidShields, bool fEnableCorpses, bool fEnlargeboxes)
@@ -84,7 +84,7 @@ void G_SolidifyEnts(bool fEnable, bool fSolidShields, bool fEnableCorpses, bool 
 	}
 
 	dbg(msstring("End (") + (fEnable ? "Enabled" : "Disabled") + ")");
-	enddbg;
+	
 }
 
 //

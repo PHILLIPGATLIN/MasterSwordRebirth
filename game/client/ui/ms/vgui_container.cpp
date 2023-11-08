@@ -449,7 +449,7 @@ void VGUI_ContainerPanel::AddInventoryItems()
 		}
 	}
 
-	enddbg;
+	
 }
 
 // MiB FEB2015_07 - Inventory type buttons

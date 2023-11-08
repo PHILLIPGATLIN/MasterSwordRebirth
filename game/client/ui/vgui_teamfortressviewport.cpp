@@ -110,7 +110,7 @@ void VGUI_Think()
 		dbg(i);
 		gViewPort->m_Menus[i]->Think();
 	}
-	enddbg;
+	
 }
 class CMenuPanel *CreateNewCharacterPanel();
 
@@ -593,7 +593,7 @@ TeamFortressViewport::TeamFortressViewport(int x, int y, int wide, int tall) : P
 	//CreateSpectatorMenu();
 
 	m_iInitialized = true;
-	enddbg;
+	
 }
 
 //-----------------------------------------------------------------------------
@@ -671,7 +671,7 @@ void TeamFortressViewport::Initialize(void)
 	}
 
 	App::getInstance()->setCursorOveride(App::getInstance()->getScheme()->getCursor(Scheme::SchemeCursor::scu_none));
-	enddbg;
+	
 }
 
 //-----------------------------------------------------------------------------
@@ -1221,7 +1221,7 @@ void TeamFortressViewport::CreateScoreBoard(void)
 
 	logfile << Logger::LOG_INFO << "[Scoreboard: Complete]\n";
 
-	enddbg;
+	
 }
 
 //======================================================================
@@ -1494,7 +1494,7 @@ void TeamFortressViewport::ShowVGUIMenu(int iMenu)
 		UpdateCursorState();
 	}
 
-	enddbg;
+	
 }
 
 // Removes all VGUI Menu's onscreen
@@ -1645,7 +1645,7 @@ void TeamFortressViewport::CreateVGUIMenus()
 	m_pHUDPanel->setVisible(true);
 
 	logfile << Logger::LOG_INFO << "[Create VGUI Menus: Complete]\n";
-	enddbg;
+	
 }
 
 //======================================================================================

@@ -202,7 +202,7 @@ public:
 		m_FN.setFgColor(255, 255, 255, 255);
 		m_FN.setVisible(false);
 
-		enddbg;
+		
 	}
 
 	void Update(void)
@@ -421,6 +421,6 @@ int __MsgFunc_StatusIcons(const char *pszName, int iSize, void *pbuf)
 	else if (Type == FN_DW)
 		SetFN(false);
 
-	enddbg;
+	
 	return 0;
 }

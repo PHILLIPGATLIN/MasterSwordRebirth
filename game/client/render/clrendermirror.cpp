@@ -928,7 +928,7 @@ void CMirror::RenderMirroredWorld(int RecurseCall)
 	if (m_Parent)
 		CMirrorMgr::m_CurrentMirror = OldCurrentMirror;
 
-	enddbg;
+	
 }
 
 mleaf_t *FindLeaf(Vector &Origin, mnode_t *pNode)
@@ -1205,7 +1205,7 @@ bool Mirror_DrawSurface(TraverseInfo_t &Info, msurface_t *pSurface)
 		glVertex3fv( Vertex );
 	}
 	glEnd ();*/
-	enddbg;
+	
 	return true;
 }
 

@@ -92,7 +92,7 @@ void CHudScript::Think( )
 	
 	dbg( "RunScriptEvents" );
 	RunScriptEvents( );
-	enddbg;
+	
 }
 
 //Receieved new client-side script

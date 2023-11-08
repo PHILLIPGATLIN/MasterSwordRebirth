@@ -196,7 +196,7 @@ CStatPanel::CStatPanel(Panel *pParent) : CMenuPanel(0, false, 0, 0, ScreenWidth,
 
 	m_pScrollPanel->setScrollValue(0, 0);
 	m_pScrollPanel->validate();
-	enddbg;
+	
 }
 
 //Shuriken read the Exp message from the server.

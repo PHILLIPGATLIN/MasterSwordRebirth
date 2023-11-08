@@ -1618,7 +1618,7 @@ int CStudioModelRenderer::StudioDrawModel(int flags)
 				StudioRenderModel();
 		}
 	}
-	enddbg;
+	
 	return 1;
 }
 

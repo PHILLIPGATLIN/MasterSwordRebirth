@@ -527,7 +527,7 @@ void CBreakable::TraceAttack(entvars_t *pevAttacker, float flDamage, Vector vecD
 	}
 
 	CBaseDelay::TraceAttack(pev, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
-	enddbg;
+	
 }
 
 //=========================================================
@@ -649,7 +649,7 @@ int CBreakable ::TakeDamage(entvars_t *pevInflictor, entvars_t *pevAttacker, flo
 
 	DamageSound();
 
-	enddbg;
+	
 	return 1;
 }
 

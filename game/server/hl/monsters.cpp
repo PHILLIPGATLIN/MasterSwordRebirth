@@ -409,7 +409,7 @@ void CBaseMonster ::Look(int iDistance)
 	//dbg("SetConditions");
 	SetConditions(iSighted);
 
-	//enddbg;
+	//
 }
 
 //=========================================================

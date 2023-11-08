@@ -606,7 +606,7 @@ void CWorld ::Precache(void)
 
 	g_fInPrecache = false;
 
-	enddbg;
+	
 }
 
 //

@@ -225,7 +225,7 @@ CGenericItem* CGenericItemMgr::NewGenericItem(CGenericItem* pGlobalItem)
 
 	return pItem;
 
-	enddbg;
+	
 
 	return NULL;
 }
@@ -291,7 +291,7 @@ void CGenericItemMgr::DeleteItems()
 		DeleteItem(0); //Keep deleting the first item
 
 	m_Items.clear();
-	enddbg;
+	
 }
 
 //Temporarily create an item to determine it's name
@@ -521,7 +521,7 @@ void CGenericItemMgr::GenericItemPrecache(void)
 
 end: //Cleanup time
 	logfile << Logger::LOG_INFO << "Done precaching items\n";
-	enddbg;
+	
 }
 
 //-----------------
@@ -599,7 +599,7 @@ void CGenericItem::Deactivate()
 	dbg("Deallocate Script");
 	IScripted::Deactivate();
 
-	enddbg;
+	
 }
 
 void CGenericItem::Spawn()
@@ -1008,7 +1008,7 @@ bool CGenericItem::UseItem(bool Verbose)
 	if (!m_pPlayer)
 		return PutInAnyPack(NULL, true);
 
-	enddbg;
+	
 	return m_pPlayer->PutInAnyPack(this, true);
 }
 
@@ -1452,7 +1452,7 @@ void CGenericItem::ListContents()
 	dbg("Call ContainerWindowOpen");
 	ContainerWindowOpen(m_iId);
 #endif
-	enddbg;
+	
 }
 
 msstring ItemThinkProgress;
@@ -1528,7 +1528,7 @@ void CGenericItem::Think()
 		iDropTickCounter++;
 	}*/
 
-	enddbg;
+	
 }
 #ifdef VALVE_DLL
 //
@@ -2246,7 +2246,7 @@ bool CGenericItem::Script_ExecuteCmd(CScript* Script, SCRIPT_EVENT& Event, scrip
 	else
 		return false;
 
-	enddbg;
+	
 
 	return true;
 }

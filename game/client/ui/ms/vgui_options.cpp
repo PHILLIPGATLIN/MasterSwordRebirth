@@ -541,7 +541,7 @@ void CPanel_Options::Open(option_e OptionScreen)
 		break;
 	}
 
-	enddbg;
+	
 }
 
 //-----------------------------------------------------------------------------

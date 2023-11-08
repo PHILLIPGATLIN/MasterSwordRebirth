@@ -1766,7 +1766,7 @@ bool CMSMonster::Script_ExecuteCmd(CScript *Script, SCRIPT_EVENT &Event, scriptc
 		else
 			ERROR_MISSING_PARMS;
 	}
-	enddbg;
+	
 
 #endif
 	return false;

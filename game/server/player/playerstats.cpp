@@ -186,7 +186,7 @@ std::tuple<bool, int> CBasePlayer::LearnSkill(int iStat, int iStatType, int Enem
 				Params.add(SpellTypeList[iBestSubstatId]);
 			Params.add(UTIL_VarArgs("%i", GetSkillStat(iStatIdx, iBestSubstatId)));
 			CallScriptEvent("game_learnskill", &Params);
-			enddbg;
+			
 		}
 
 		bSkillLeveled = true;

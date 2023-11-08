@@ -289,7 +289,7 @@ void CMSMonster::Spawn()
 	Parameters.add(m_addparams);
 
 	CallScriptEvent("game_postspawn", &Parameters);
-	//enddbg;
+	//
 }
 void CMSMonster::Precache()
 {
@@ -986,7 +986,7 @@ void CMSMonster::ListenForSound()
 
 	m_ListenTime = gpGlobals->time + 1.0;
 
-	enddbg;
+	
 }
 void CMSMonster::SetMoveDest()
 {
@@ -1151,7 +1151,7 @@ void CMSMonster::SetWanderDest()
 			CallScriptEvent("game_wander");
 		}
 	}
-	enddbg;
+	
 }
 
 Vector StartAng;
@@ -1273,7 +1273,7 @@ void CMSMonster::Move(float flInterval)
 	m_LastYaw = pev->angles.y;
 	m_LastOrigin = pev->origin;
 
-	enddbg;
+	
 }
 void CMSMonster::AvoidFrontObject(float MoveAmt)
 {
@@ -2336,7 +2336,7 @@ float CMSMonster::TraceAttack(damage_t& Damage)
 
 	return Damage.flDamage;
 
-	enddbg;
+	
 
 	return 0;
 }
@@ -2425,7 +2425,7 @@ int CMSMonster::TakeDamage(entvars_t* pevInflictor, entvars_t* pevAttacker, floa
 			pev->health = 0;
 	}
 
-	//enddbg;
+	//
 
 	return flDamage;
 }
@@ -2608,7 +2608,7 @@ void CMSMonster::Killed(entvars_t* pevAttacker, int iGib)
 			DropAllItems(); //Be sure to drop items
 		GibMonster();
 	}
-	enddbg;
+	
 }
 void CMSMonster::SUB_Remove()
 {
@@ -2903,7 +2903,7 @@ void CMSMonster::OpenMenu(CBasePlayer* pPlayer)
 		MESSAGE_END();
 	}
 	pPlayer->InMenu = true;
-	enddbg;
+	
 }
 void CMSMonster::UseMenuOption(CBasePlayer* pPlayer, int Option)
 {

@@ -118,7 +118,7 @@ void VGui_Startup()
 	TexturePanel* texturePanel=new TexturePanel();
 	texturePanel->setParent(gViewPort);
 	*/
-	enddbg;
+	
 }
 
 void VGui_Shutdown()

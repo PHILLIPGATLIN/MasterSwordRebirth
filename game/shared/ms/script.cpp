@@ -4988,7 +4988,7 @@ void CScript::RunScriptEvents(bool fOnlyRunNamedEvents)
 		}
 	}
 
-	enddbg;
+	
 }
 void CScript::RunScriptEventByName(msstring_ref pszEventName, msstringlist* Parameters)
 {

@@ -2329,7 +2329,7 @@ void DLLEXPORT HUD_TempEntUpdate(
 finish:
 	// Restore state info
 	gEngfuncs.pEventAPI->EV_PopPMStates();
-	enddbg;
+	
 }
 
 /*

@@ -1759,7 +1759,7 @@ void DLLEXPORT V_CalcRefdef(struct ref_params_s *pparams)
 	ViewMgr.LastAngles = ViewMgr.Angles;
 	ViewMgr.LastOrigin = ViewMgr.Origin;
 
-	enddbg;
+	
 }
 
 /*

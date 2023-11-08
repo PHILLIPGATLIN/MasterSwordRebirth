@@ -303,7 +303,7 @@ void CBasePlayer::InitialSpawn(void)
 	CallScriptEvent("game_reset_wear_positions"); //Initialize the wearable positions, in case the player makes a new char
 	m_Initialized = true;
 
-	enddbg;
+	
 }
 /*
   PlaySound - Save yourself a couple parameters by using this instead of EMIT_SOUND.
@@ -793,7 +793,7 @@ bool CBasePlayer::UseItem(int iHand, bool bVerbose)
 	if (pUse && pUse->SpellData)
 		SendEventMsg(HUDEVENT_NORMAL, msstring("The ") + SPEECH_GetItemName(pUse) + " spell is canceled");
 
-	enddbg;
+	
 
 	return true;
 }

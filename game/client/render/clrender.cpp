@@ -517,7 +517,7 @@ void DLLEXPORT HUD_DrawNormalTriangles(void)
 		}
 	}*/
 
-	enddbg;
+	
 }
 
 /*
@@ -552,7 +552,7 @@ void DLLEXPORT HUD_DrawTransparentTriangles(void)
 			clWorldEnt->model->nodes[0].visframe = OldVisFrame;
 	}*/
 
-	enddbg;
+	
 }
 
 void CRender::Cleanup()
@@ -651,7 +651,7 @@ void VGUI_Image3D::LoadImg()
 		m_ImageLoaded = m_Particle->m_Texture ? true : false;
 	}
 
-	enddbg;
+	
 }
 void VGUI_Image3D::paintBackground()
 {
@@ -737,7 +737,7 @@ bool LoadGLTexture(const char *FileName, loadtex_t &LoadTex)
 		Print("Missing MS Texture: %s\n", FileName);
 	}
 
-	enddbg;
+	
 
 	return Loaded;
 }

@@ -263,7 +263,7 @@ void CGenericItem::ProjectileTouch(CBaseEntity *pOther)
 	SetTouch(NULL);
 	//Think( );
 
-	enddbg;
+	
 }
 void CGenericItem::Projectile_Move()
 {

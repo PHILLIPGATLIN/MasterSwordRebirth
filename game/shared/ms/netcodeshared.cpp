@@ -201,7 +201,7 @@ void MSChar_Interface::Think_SendChar(CBasePlayer *pPlayer)
 
 	SendInfo.TimeDataLastSent = gpGlobals->time;
 
-	enddbg;
+	
 }
 
 #ifdef VALVE_DLL
@@ -247,7 +247,7 @@ void MSChar_Interface::HL_SVReadCharData(CBasePlayer *pPlayer, const char *UUEnc
 		SendInfo.Status = CSS_DORMANT;
 	}
 
-	enddbg;
+	
 }
 #endif
 
@@ -310,6 +310,6 @@ void MSChar_Interface::HL_CLReadCharData()
 		SendInfo.Status = CSS_DORMANT;
 	}
 
-	enddbg;
+	
 }
 #endif

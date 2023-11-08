@@ -801,7 +801,7 @@ void CBasePlayer::Killed(entvars_t *pevAttacker, int iGib)
 	SetBits(pev->flags, FL_NOTARGET);
 	m_TimeTillSuicide = 0;
 
-	enddbg;
+	
 }
 
 /*
@@ -1687,7 +1687,7 @@ void CBasePlayer::PreThink(void)
 	pev->vuser3.y = (IsAlive() ? pev->health : 0);
 	pev->vuser3.z = 0.0f;
 
-	enddbg;
+	
 }
 
 /* Time based Damage works as follows:
@@ -2947,7 +2947,7 @@ bool CBasePlayer::MoveToSpawnSpot()
 	}
 
 	//Thothie - need a loop around here, causing every wearable item the character has to execute it's "game_wear" function
-	enddbg;
+	
 	return pSpawnSpot ? true : false;
 }
 
@@ -6554,7 +6554,7 @@ bool CBasePlayer::RestoreAllServer(void *pData, ulong Size)
 	dbg("Call CBasePlayer::Spawn()");
 	Spawn();
 
-	enddbg;
+	
 
 	return true;
 }

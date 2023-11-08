@@ -69,7 +69,7 @@ int __MsgFunc_InitHUD(const char *pszName, int iSize, void *pbuf)
 	logfile << Logger::LOG_INFO << "[__MsgFunc_InitHUD]\n";
 	gHUD.MsgFunc_InitHUD(pszName, iSize, pbuf);
 
-	enddbg;
+	
 
 	return 1;
 }
@@ -557,7 +557,7 @@ void CHud::Think(void)
 
 	dbg("End");
 
-	enddbg;
+	
 }
 
 void CHud::VidInit(void)
@@ -649,7 +649,7 @@ void CHud::VidInit(void)
 	dbg("Reload global sprite list");
 	MSBitmap::ReloadSprites();
 
-	enddbg;
+	
 }
 
 //this should get called whenever the client changes levels or servers.
@@ -798,7 +798,7 @@ int CHud::MsgFunc_SetFOV(const char *pszName, int iSize, void *pbuf)
 		// set a new sensitivity that is proportional to the change from the FOV default
 		m_flMouseSensitivity = sensitivity->value * ((float)newfov / (float)def_fov) * CVAR_GET_FLOAT("zoom_sensitivity_ratio");
 	}
-	enddbg;
+	
 
 	return 1;
 }

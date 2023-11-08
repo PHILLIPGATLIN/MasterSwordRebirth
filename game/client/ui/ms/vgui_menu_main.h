@@ -49,7 +49,7 @@ public:
 		m_OptionsPanel = new CPanel_Options(this);
 		m_OptionsPanel->setVisible(false);
 
-		enddbg;
+		
 	}
 
 	// Update

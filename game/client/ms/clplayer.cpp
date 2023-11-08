@@ -200,7 +200,7 @@ void CBasePlayer::Think(void)
 	//	Print( "Entities: %i\n", MS_CLGlobals->num_ents );
 	pev->nextthink = gpGlobals->time;
 
-	enddbg;
+	
 }
 
 void CBasePlayer::DoSprint()
@@ -683,7 +683,7 @@ void HUD_WeaponsPostThink(local_state_s* from, local_state_s* to, usercmd_t* cmd
 	// Wipe it so we can't use it after this frame
 	g_finalstate = NULL;
 
-	enddbg;
+	
 }
 /*
 =====================
@@ -707,7 +707,7 @@ void _DLLEXPORT HUD_PostRunCmd(struct local_state_s* from, struct local_state_s*
 	if (runfuncs)
 		HUD_WeaponsPostThink(from, to, cmd, time, random_seed);
 
-	enddbg;
+	
 	//Print( "%f %f / %f %f\n", from->playerstate.origin.x, from->playerstate.origin.y, to->playerstate.origin.x, to->playerstate.origin.y );
 }
 
@@ -1092,7 +1092,7 @@ int __MsgFunc_Item(const char* pszName, int iSize, void* pbuf)
 		UpdateActiveMenus();
 	}
 
-	enddbg;
+	
 	return 1;
 }
 
@@ -1310,7 +1310,7 @@ int __MsgFunc_Hands(const char* pszName, int iSize, void* pbuf)
 	BEGIN_READ(pbuf, iSize);
 	player.SwitchHands(READ_BYTE());
 
-	enddbg;
+	
 	return 1;
 }
 
@@ -1563,7 +1563,7 @@ int __MsgFunc_CLDllFunc(const char* pszName, int iSize, void* pbuf)
 	break;
 	}
 
-	enddbg;
+	
 	return 1;
 }
 

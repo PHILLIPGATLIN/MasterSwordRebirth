@@ -143,7 +143,7 @@ void MSCLGlobals::Initialize()
 	dbg("Call MSGlobalItemInit");
 	MSGlobalItemInit();
 
-	enddbg;
+	
 }
 
 //Player initialization that happens every map
@@ -200,7 +200,7 @@ void MSCLGlobals::Think()
 
 	//Last task
 	flLastThinkTime = gpGlobals->time;
-	enddbg;
+	
 }
 void MSCLGlobals::PrintAllEntites()
 {
@@ -373,7 +373,7 @@ void MSCLGlobals::SpawnIntoServer()
 
 	logfile << "DONE\n";
 
-	enddbg;
+	
 }
 
 //Cleans up stuff from the previous map
@@ -395,7 +395,7 @@ void MSCLGlobals::Cleanup()
 	//Remove Environment Special Effects
 	CRender::Cleanup();
 
-	enddbg;
+	
 }
 
 BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)

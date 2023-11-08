@@ -393,7 +393,7 @@ bool CGenericItem::StartAttack(int ForceAttackNum)
 		m_LastChargedAmt = 0; //Clear after I've checked for valid attack.  This way if I let go of charge early, it still waits for the attack to finish
 	}
 
-	enddbg;
+	
 	return true;
 }
 
@@ -473,7 +473,7 @@ void CGenericItem::Attack()
 	else if (Type == ATT_CHARGE_THROW_PROJ)
 		ChargeThrowProj();
 
-	enddbg;
+	
 }
 void CGenericItem::RegisterAttack()
 {
@@ -728,7 +728,7 @@ void CGenericItem::ItemPostFrame()
 #endif
 	dbg("End");
 
-	enddbg;
+	
 }
 // Attack variations
 void CGenericItem::StrikeLand()
@@ -1028,7 +1028,7 @@ bool CGenericItem::UseAmmo(int iAmt)
 	if (CurrentAttack->flMPDrain)
 		m_pOwner->Give(GIVE_MP, -CurrentAttack->flMPDrain);
 
-	enddbg;
+	
 	return true;
 }
 
@@ -1628,7 +1628,7 @@ void DoDamage(damage_t &Damage, hitent_list &Hits)
 		}
 	}
 
-	enddbg;
+	
 }
 
 //MIB MAR2008a - massive changes
@@ -2047,7 +2047,7 @@ EndDamage:
 	}
 
 	return pTarget;
-	enddbg;
+	
 	return NULL;
 }
 #endif

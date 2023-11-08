@@ -73,7 +73,7 @@ int CHudID::Draw(float flTime)
 	//if( Alpha <= 0 || !pDrawInfo || !pDrawInfo->Name.len() ) return 1;
 
 	HUD_DrawID(pDrawInfo);
-	enddbg;
+	
 
 	return 1;
 
@@ -167,7 +167,7 @@ int CHudID::MsgFunc_EntInfo(const char *pszName, int iSize, void *pbuf)
 	//Not found, create a new one
 	player.m_EntInfo.add(EntData);
 
-	enddbg;
+	
 	return 1;
 }
 

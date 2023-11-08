@@ -387,7 +387,7 @@ int CGenericItem::Container_AddItem(CGenericItem *pItem)
 	//endif
 	//CallScriptEvent( "game_container_addeditem", &Params );
 
-	enddbg;
+	
 
 	return 1;
 }
