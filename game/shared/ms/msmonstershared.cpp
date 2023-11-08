@@ -459,8 +459,7 @@ bool CMSMonster::CreateStats()
 	StoreEntity(this, ENT_ME);
 
 	m_StatsCreated = true;
-
-	enddbg("CMSMonster::CreateStats");
+	
 	return true;
 }
 void CMSMonster::DeleteStats()

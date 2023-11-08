@@ -5126,7 +5126,6 @@ bool CScript::ParseScriptFile(const char* pszScriptData)
 		lineNum++;
 	}
 
-	enddbg("CSript::ParseScriptFile()");
 	//  Uncomment to print out all this function gathered from the script file
 	//#ifndef VALVE_DLL
 		/*SCRIPT_EVENT *pEvent = seFirstEvent;
@@ -6409,8 +6408,6 @@ DontKeepCommand:
 		}
 		else MSErrorConsoleText("", UTIL_VarArgs("Script: %s, Line: %i - Conditional command returned to parent cmd list but the parent list wasn't found!\n", m.ScriptFile.c_str(), LineNum, cBuffer));
 	}
-
-	enddbg("CScript::ParseLine()");
 
 	return 1;
 }

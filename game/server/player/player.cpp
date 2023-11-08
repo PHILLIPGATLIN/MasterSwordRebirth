@@ -2281,8 +2281,6 @@ pt_end:
 			pev->solid = SOLID_SLIDEBOX;
 		}
 	}
-
-	enddbg("CBasePlayer::PostThink()");
 }
 
 // checks if the spot is clear of players
@@ -2923,8 +2921,6 @@ void CBasePlayer::Spawn(void)
 		Parameters.add(EntToString(this));
 		MSGlobals::GameScript->CallScriptEvent("game_playerspawn", &Parameters);
 	}
-
-	enddbg("CBasePlayer::Spawn()");
 }
 
 bool CBasePlayer::MoveToSpawnSpot()
@@ -4130,8 +4126,6 @@ void CBasePlayer::UpdateClientData(void)
 		UpdateStatusBar();
 		m_flNextSBarUpdateTime = gpGlobals->time + 0.2;
 	}*/
-
-	enddbg("CBasePlayer::UpdateClientData()");
 }
 
 //=========================================================

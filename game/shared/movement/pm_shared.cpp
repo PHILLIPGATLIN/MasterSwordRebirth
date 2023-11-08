@@ -3579,7 +3579,6 @@ void PM_Move(struct playermove_s *ppmove, int server)
 	}
 
 	PMScript = NULL;
-	enddbg("PM_Move()");
 }
 
 extern "C" int PM_GetPhysEntInfo(int ent)
@@ -3606,8 +3605,6 @@ void PM_Init(struct playermove_s *ppmove)
 	PM_InitTextureTypes();
 
 	pm_shared_initialized = 1;
-
-	enddbg("PM_Init()");
 }
 
 msstring_ref PM_GetValue(msstringlist &Params)

@@ -954,5 +954,4 @@ void CScript::ScriptedEffect(msstringlist &Params)
 
 		Print("Decal: %i @ %s\n", decalidx, Params[1].c_str());
 	}
-	enddbg("CScript::ScriptedEffect()");
 }

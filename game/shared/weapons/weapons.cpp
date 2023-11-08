@@ -564,8 +564,6 @@ void CBasePlayerItem::ItemPostFrame(void)
 		Think();
 #endif
 	dbg("End");
-
-	enddbg("CBasePlayerItem::ItemPostFrame()");
 }
 
 bool CBasePlayerWeapon::ShouldIdle(void)
