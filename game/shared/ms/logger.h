@@ -141,6 +141,7 @@ void LogExtensive(msstring_ref Text);
 	LogCurrentLine(a);
 #endif
 
+// TODO
 #define startdbg          \
 	msstring FunctionPrg; \
 	try                   \

@@ -511,7 +511,6 @@ TeamFortressViewport::TeamFortressViewport(int x, int y, int wide, int tall) : P
 	m_pCurrentMenu = NULL;
 	m_pCurrentCommandMenu = NULL;
 
-	dbg("Call Initialize() (first time)");
 	logfile << Logger::LOG_INFO << "[TeamFortressViewport: Initialize]\n";
 	Initialize();
 
@@ -582,12 +581,10 @@ TeamFortressViewport::TeamFortressViewport(int x, int y, int wide, int tall) : P
 	//CreateCommandMenu();
 
 	// Create the spectator Panel
-	dbg("Call SpectatorPanel()");
 	m_pSpectatorPanel = new SpectatorPanel(0, 0, ScreenWidth, ScreenHeight);
 	m_pSpectatorPanel->setParent(this);
 	m_pSpectatorPanel->setVisible(false);
 
-	dbg("Call m_pSpectatorPanel->Initialize()");
 	//logfile << "[m_pSpectatorPanel->Initialize]" << endl;
 	m_pSpectatorPanel->Initialize();
 
@@ -673,7 +670,6 @@ void TeamFortressViewport::Initialize(void)
 		strncpy(m_sTeamNames[i], "", MAX_TEAMNAME_SIZE);
 	}
 
-	dbg("Call App::getInstance()->setCursorOveride");
 	App::getInstance()->setCursorOveride(App::getInstance()->getScheme()->getCursor(Scheme::SchemeCursor::scu_none));
 	enddbg;
 }

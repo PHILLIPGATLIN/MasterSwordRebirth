@@ -191,7 +191,6 @@ void MSCLGlobals::Think()
 			RemoveEnt(m_ClEntites[e]);
 
 	//Call entity Think() functions
-	dbg("Call entity Think() functions");
 	for (int e = 0; e < m_ClEntites.size(); e++)
 		if (flLastThinkTime <= m_ClEntites[e]->pev->nextthink && m_ClEntites[e]->pev->nextthink < gpGlobals->time)
 			m_ClEntites[e]->Think();

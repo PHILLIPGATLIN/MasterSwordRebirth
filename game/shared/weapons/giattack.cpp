@@ -734,8 +734,6 @@ void CGenericItem::ItemPostFrame()
 void CGenericItem::StrikeLand()
 {
 #ifdef VALVE_DLL
-
-	SetDebugProgress(ItemThinkProgress, "CGenericItem::StrikeLand - Begin");
 	//m_pOwner->WorldVolume = LOUD_GUN_VOLUME;
 
 	UTIL_MakeVectors(m_pOwner->pev->v_angle);
@@ -792,7 +790,6 @@ void CGenericItem::StrikeLand()
 		flDamage *= m_LastChargedAmt;
 	}
 
-	SetDebugProgress(ItemThinkProgress, "CGenericItem::StrikeLand - Call DoDamage");
 	int bitsDamage = DMG_CLUB;
 	if (!m_pPlayer)
 		bitsDamage |= DMG_SIMPLEBBOX;
@@ -841,8 +838,6 @@ void CGenericItem::StrikeLand()
 	if (!CurrentAttack)
 		return;
 
-	SetDebugProgress(ItemThinkProgress, "CGenericItem::StrikeLand - Set script variables");
-
 	//Reset hit/miss variables
 	//SetScriptVar( "game_lastattack.hitwall", 0 );
 	//SetScriptVar( "game_lastattack.hitmonster", 0 );
@@ -854,15 +849,12 @@ void CGenericItem::StrikeLand()
 	//else SetScriptVar( "game_lastattack.hitwall", 1 );
 	//SetScriptVar( "game_lastattack.endpos", VecToString(Damage.outTraceResult.vecEndPos) );
 
-	SetDebugProgress(ItemThinkProgress, "CGenericItem::StrikeLand - Script callback: land event");
 	msstringlist Parameters;
 	Parameters.add(pHit ? (pHit->IsMSMonster() ? "npc" : "world") : "none");
 	Parameters.add(VecToString(Damage.outTraceResult.vecEndPos));
 	Parameters.add(pHit ? EntToString(pHit) : "¯NONE¯");
 	Parameters.add(Damage.AttackHit ? "1" : "0");
 	CallScriptEvent(CurrentAttack->CallbackName + "_strike", &Parameters);
-
-	SetDebugProgress(ItemThinkProgress, "CGenericItem::StrikeLand - Reset script variables");
 #endif
 }
 void CGenericItem::StrikeHold()
@@ -1672,7 +1664,7 @@ CBaseEntity *DoDamage(damage_t &Damage, CBaseEntity *pTarget)
 	//bool fDidHit = FALSE, fHitWorld = TRUE, bActualHit = FALSE,
 	//	fReportHit = FALSE, fDodged = FALSE;
 
-	SetDebugProgress(ItemThinkProgress, "DoDamage - Check hit");
+	//SetDebugProgress(ItemThinkProgress, "DoDamage - Check hit");
 	bool fReportHit = false;
 	Damage.AttackHit = true;
 	Damage.AttackCrit = false;
@@ -1682,7 +1674,7 @@ CBaseEntity *DoDamage(damage_t &Damage, CBaseEntity *pTarget)
 	int iAccuracyRoll = 0;
 	if (pTarget)
 	{
-		SetDebugProgress(ItemThinkProgress, "DoDamage - Entity hit");
+		//SetDebugProgress(ItemThinkProgress, "DoDamage - Entity hit");
 		//Hit an entity
 		//Check if I can damage it
 		Damage.AttackHit = pEntityAttacker->CanDamage(pTarget);
@@ -1725,7 +1717,7 @@ CBaseEntity *DoDamage(damage_t &Damage, CBaseEntity *pTarget)
 			}
 		}
 
-		SetDebugProgress(ItemThinkProgress, "DoDamage - Check if damage is dealt");
+		//SetDebugProgress(ItemThinkProgress, "DoDamage - Check if damage is dealt");
 		bool fDodged = false;
 		if (Damage.AttackHit) //check again, because it might have been canceled in game_damaged_other
 		{
@@ -1793,7 +1785,7 @@ CBaseEntity *DoDamage(damage_t &Damage, CBaseEntity *pTarget)
 			else
 				flDamage = ((CMSMonster *)pTarget)->TraceAttack(Damage);
 
-			SetDebugProgress(ItemThinkProgress, "DoDamage - Apply damage");
+			//SetDebugProgress(ItemThinkProgress, "DoDamage - Apply damage");
 			if (flDamage > 0) // flDamage < 0 means monster dodged it
 			{
 				//MiB Mar2008a - Relocated exp assigning here so that armor and other
@@ -1842,7 +1834,7 @@ CBaseEntity *DoDamage(damage_t &Damage, CBaseEntity *pTarget)
 		//Report Damage
 		//=============
 
-		SetDebugProgress(ItemThinkProgress, "DoDamage - Report damage");
+		//SetDebugProgress(ItemThinkProgress, "DoDamage - Report damage");
 		if (fReportHit)
 		{
 			if (Damage.flDamage > 0)
@@ -1991,7 +1983,7 @@ CBaseEntity *DoDamage(damage_t &Damage, CBaseEntity *pTarget)
 			} //endif Damage.flDamage > 0
 		}
 
-		SetDebugProgress(ItemThinkProgress, "DoDamage - Countereffect");
+		//SetDebugProgress(ItemThinkProgress, "DoDamage - Countereffect");
 		pTarget->CounterEffect(pEntityInflictor, 0, (void *)&Damage.flDamage);
 		//if( fHitWorld )
 		//{

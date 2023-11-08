@@ -630,8 +630,6 @@ void VGUI_Image3D::LoadImg()
 		dbg("Load TGA");
 		msstring FileName = msstring("gfx/vgui/") + m_ImageName + ".tga";
 
-		dbg(msstring("TGA Name = ") + FileName);
-
 		loadtex_t LoadTex;
 		dbg("Call LoadGLTexture");
 		m_ImageLoaded = LoadGLTexture(FileName, LoadTex);

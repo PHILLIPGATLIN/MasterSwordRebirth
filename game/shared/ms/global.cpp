@@ -561,13 +561,6 @@ void Log(char *szFmt, ...)
 	logfile << string << "\n";
 }
 
-void LogExtensive(msstring_ref Text)
-{
-#ifdef EXTENSIVE_LOGGING
-	LogCurrentLine(Text);
-#endif
-}
-
 void DbgLog(char *szFmt, ...)
 {
 #ifdef EXTENSIVE_LOGGING

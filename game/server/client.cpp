@@ -1958,11 +1958,7 @@ Engine is going to shut down, allows setting a breakpoint in game .dll to catch 
 */
 void Sys_Error(const char *error_string)
 {
-	DBG_INPUT;
 	// Default case, do nothing.  MOD AUTHORS:  Add code ( e.g., _asm { int 3 }; here to cause a breakpoint for debugging your game .dlls
-	msstring Error = msstring("SYS_ERROR: ") + (error_string ? error_string : "[NO STRING]");
-	//logfile << "SYS_ERROR: " << (error_string ? error_string : "[NO STRING]") << endl;
-	LogCurrentLine(Error.c_str());
 }
 
 /*
@@ -1974,7 +1970,6 @@ Returns the descriptive name of this .dll.  E.g., Half-Life, or Team Fortress 2
 */
 const char *GetGameDescription()
 {
-	DBG_INPUT;
 	static msstring GameDesc = UTIL_VarArgs("MS:R %s", MS_VERSION);
 	return GameDesc;
 }

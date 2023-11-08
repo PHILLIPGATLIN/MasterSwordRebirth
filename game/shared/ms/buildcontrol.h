@@ -6,14 +6,6 @@
 //When defined, the client and server dlls will maintain txt logfiles
 #define KEEP_LOG
 
-//Allows exceptions to be logged to both console and the logfile
-#define LOG_EXCEPTIONS
-
-//!!!EXTENSIVE_LOGGING has MOVED!! - Look at the top of Global.cpp
-//#ifndef EXTENSIVE_LOGGING
-//#define EXTENSIVE_LOGGING // Causes EXTENSIVE logging of every dbg operation
-//#endif
-
 //Causes DbgInputs() to be called for each DLL input function in the client and server dlls
 #define TRACK_INPUTS
 

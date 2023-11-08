@@ -154,7 +154,6 @@ extern "C" {
 	}
 }
 
-#define Set_DispatchSpawnDbg(a) dbg(msstring("(") + STRING(pent->v.classname) + ") " + a)
 #include "soundent.h"
 
 int DispatchSpawn(edict_t *pent)
@@ -184,7 +183,6 @@ int DispatchSpawn(edict_t *pent)
 		pEntity->Spawn();
 		//return;
 
-		Set_DispatchSpawnDbg("After Call Spawn");
 		// Try to get the pointer again, in case the spawn function deleted the entity.
 		// UNDONE: Spawn() should really return a code to ask that the entity be deleted, but
 		// that would touch too much code for me to do that right now.
@@ -219,7 +217,6 @@ int DispatchSpawn(edict_t *pent)
 			}
 		}
 	}
-	Set_DispatchSpawnDbg("End");
 	enddbg;
 
 	return 0;
@@ -255,14 +252,11 @@ void DispatchKeyValue(edict_t *pentKeyvalue, KeyValueData *pkvd)
 // while it builds the graph
 BOOL gTouchDisabled = FALSE;
 
-#define Set_DispatchTouchDbg(a) SetDebugProgress(DispatchTouchPrg, msstring("(") + STRING(pentTouched->v.classname) + "<-- " + STRING(pentOther->v.classname) + ") " + a)
 void DispatchTouch(edict_t *pentTouched, edict_t *pentOther)
 {
-	DBG_INPUT;
 	msstring DispatchTouchPrg;
 	try
 	{
-		SetDebugProgress(DispatchTouchPrg, "Begin");
 		if (gTouchDisabled)
 			return;
 
@@ -271,10 +265,8 @@ void DispatchTouch(edict_t *pentTouched, edict_t *pentOther)
 
 		if (pEntity && pOther && !((pEntity->pev->flags | pOther->pev->flags) & FL_KILLME))
 		{
-			Set_DispatchTouchDbg("Call Touch");
 			pEntity->Touch(pOther);
 		}
-		Set_DispatchTouchDbg("End");
 	}
 	catch (...)
 	{
