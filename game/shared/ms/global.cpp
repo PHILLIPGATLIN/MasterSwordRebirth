@@ -81,7 +81,7 @@ msstringlist vote_t::VotesTypesAllowed; //All The vote types allowed
 void MSGlobalItemInit()
 {
 	
-	dbg("Begin");
+	
 	MSGlobals::InPrecache = true;
 
 	//Delete the previous titles
@@ -186,7 +186,7 @@ void MSGlobals::SharedThink()
 {
 	
 
-	dbg("Call MSGlobals->GameScript->Think");
+	
 	if (MSGlobals::GameScript)
 		MSGlobals::GameScript->RunScriptEvents(false);
 
@@ -422,7 +422,7 @@ static msstringlist Parameters; //made static, for speed
 void CScriptedEnt::Spawn()
 {
 	
-	dbg("Begin");
+	
 	StoreEntity(this, ENT_ME);
 	m_HandleThink = true;
 
@@ -430,7 +430,7 @@ void CScriptedEnt::Spawn()
 	CBaseEntity::Spawn();
 	if (!pEdict->free)
 	{
-		dbg("Call game_spawn");
+		
 		CallScriptEvent("spawn");	   //old
 		CallScriptEvent("game_spawn"); //not called by players (dunno about monsters)
 	}
@@ -440,7 +440,7 @@ void CScriptedEnt::Spawn()
 void CScriptedEnt::Think()
 {
 	
-	dbg("CScriptedEnt::Think - Begin");
+	
 
 	edict_t *pEdict = edict();
 	CBaseEntity::Think();
@@ -488,7 +488,7 @@ void CScriptedEnt::Blocked(CBaseEntity *pOther)
 void CScriptedEnt::Use(CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value)
 {
 	
-	dbg("Begin");
+	
 
 	if (m_pfnUse)
 		(this->*m_pfnUse)(pActivator, pCaller, useType, value);
@@ -504,7 +504,7 @@ void CScriptedEnt::Use(CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE u
 void CScriptedEnt::KeyValue(KeyValueData *pkvd)
 {
 	
-	dbg("Begin");
+	
 
 	if (!pkvd->fHandled && !strcmp(pkvd->szKeyName, "scriptname"))
 	{
@@ -520,7 +520,7 @@ void CScriptedEnt::KeyValue(KeyValueData *pkvd)
 void CScriptedEnt::Deactivate()
 {
 	
-	dbg("CScriptedEnt::Deactivate - Begin");
+	
 
 	CBaseEntity::Deactivate();
 	IScripted::Deactivate();

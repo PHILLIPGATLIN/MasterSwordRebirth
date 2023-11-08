@@ -227,7 +227,7 @@ void DispatchKeyValue(edict_t *pentKeyvalue, KeyValueData *pkvd)
 	
 
 	
-	dbg("DispatchKeyValue - Begin");
+	
 	if (!pkvd || !pentKeyvalue)
 		return;
 
@@ -285,13 +285,12 @@ void DispatchUse(edict_t *pentUsed, edict_t *pentOther)
 }
 
 #include "msitemdefs.h"
-#define Set_DispatchThinkDbg(a) dbg(msstring("(") + STRING(pent->v.classname) + ") " + a)
 void DispatchThink(edict_t *pent)
 {
 	//
 	//
 
-	//dbg( "Begin" );
+	//
 	CBaseEntity *pEntity = (CBaseEntity *)GET_PRIVATE(pent);
 	if (pEntity)
 	{
@@ -322,7 +321,7 @@ void DispatchBlocked(edict_t *pentBlocked, edict_t *pentOther)
 {
 	
 	
-	dbg("Begin");
+	
 	CBaseEntity *pEntity = (CBaseEntity *)GET_PRIVATE(pentBlocked);
 	CBaseEntity *pOther = (CBaseEntity *)GET_PRIVATE(pentOther);
 
@@ -495,7 +494,7 @@ int DispatchRestore(edict_t *pent, SAVERESTOREDATA *pSaveData, int globalEntity)
 void DispatchObjectCollsionBox(edict_t *pent)
 {
 	
-	dbg("Begin");
+	
 	CBaseEntity *pEntity = (CBaseEntity *)GET_PRIVATE(pent);
 	if (pEntity)
 	{

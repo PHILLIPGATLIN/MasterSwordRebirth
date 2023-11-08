@@ -155,13 +155,13 @@ void CHalfLifeMultiplay::RefreshSkillData( void )
 //=========================================================
 void CHalfLifeMultiplay::Think( void )
 {
-	//dbg( "Call g_VoiceGameMgr.Update" );
+	//
 	g_VoiceGameMgr.Update( gpGlobals->frametime );
 
-	//dbg( "Call MSGameThink" );
+	//
 	MSGameThink( );
 
-	//dbg( "Call UpdateVote" );
+	//
 	UpdateVote( );
 
 	g_psv_gravity->value = 800.0;
@@ -175,7 +175,7 @@ void CHalfLifeMultiplay::Think( void )
 	g_waterfriction->value = 1.0;
 
 	//Delete empty teams here, so they won't be deleted in the middle of a frame
-	//dbg( "Delete empty teams" );
+	//
 	for( int i = CTeam::Teams.size()-1; i >= 0; i-- )
 	{
 		CTeam *pTeam = CTeam::Teams[i];
@@ -242,7 +242,7 @@ void CHalfLifeMultiplay::Think( void )
 	//Check for clients sending item or stat info
 //	while( CheckData( ) );
 
-	//dbg( "Check switch to start map" );
+	//
 	//If players join the server, but their characters aren't on the map, switch the map to a start map
 	if( ms_joinreset.value )
 		if( m_TimeCheckSwitchToStartMap && gpGlobals->time > m_TimeCheckSwitchToStartMap )

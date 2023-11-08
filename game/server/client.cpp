@@ -136,11 +136,11 @@ void ClientDisconnect(edict_t *pEntity)
 	
 	
 
-	dbg("Begin");
+	
 	if (g_fGameOver)
 		return;
 
-	dbg("Call pSound->Reset");
+	
 
 	/*CSound *pSound;
 	pSound = CSoundEnt::SoundPointerForIndex( CSoundEnt::ClientSoundIndex( pEntity ) );
@@ -148,7 +148,7 @@ void ClientDisconnect(edict_t *pEntity)
 	if ( pSound )
 		pSound->Reset();*/
 
-	dbg("Call g_pGameRules->ClientDisconnected");
+	
 
 	//When the server is shutdown, this ClientDisconnect is called after gamerules has been deleted
 	if (g_pGameRules)
@@ -1655,18 +1655,13 @@ void ServerDeactivate(void)
 	// Peform any shutdown operations here...
 	//
 
-	dbg("Call EndMultiplayerGame()");
 	if (g_pGameRules)
 		g_pGameRules->EndMultiplayerGame();
 
-	dbg("Call MSGameEnd");
 	MSGameEnd();	
 
-	dbg("Call FnDataHandler::Reset");
-	FnDataHandler::Reset();
-
-	dbg("End");
 	
+	FnDataHandler::Reset();
 }
 
 DLL_GLOBAL extern bool g_fInPrecache; //Code called from is in CWorld::Precache
@@ -1703,7 +1698,7 @@ void ServerActivate(edict_t *pEdictList, int edictCount, int clientMax)
 			Dbgstr += STRING(pClass->pev->targetname);
 			Dbgstr += ")";
 
-			dbg(Dbgstr);
+			
 			try
 			{
 				pClass->Activate();
@@ -1758,7 +1753,7 @@ void PlayerPreThink(edict_t *pEntity)
 	
 	
 
-	dbg("Begin");
+	
 	CBasePlayer *pPlayer = (CBasePlayer *)GET_PRIVATE(pEntity);
 
 	if (pPlayer)
@@ -1780,7 +1775,7 @@ void PlayerPostThink(edict_t *pEntity)
 	
 	
 
-	dbg("Begin");
+	
 	CBasePlayer *pPlayer = (CBasePlayer *)GET_PRIVATE(pEntity);
 
 	if (pPlayer)
@@ -1812,13 +1807,13 @@ void StartFrame(void)
 	
 	
 
-	dbg("Call MSGlobals::SharedThink");
+	
 	MSGlobals::SharedThink();
 
 	if (gpGlobals->time > CSoundEnt::m_gSoundEnt.m_TimeLastThink + 0.3f)
 		CSoundEnt::m_gSoundEnt.Think();
 
-	dbg("Call g_pGameRules->Think");
+	
 	if (g_pGameRules)
 		g_pGameRules->Think();
 
@@ -1835,7 +1830,7 @@ void StartFrame(void)
 void ClientPrecache(void)
 {
 	
-	dbg("Begin");
+	
 	// setup precaches always needed
 	PRECACHE_SOUND("player/sprayer.wav"); // spray paint sound for PreAlpha
 
@@ -2139,7 +2134,7 @@ int AddToFullPack(struct entity_state_s *state, int e, edict_t *ent, edict_t *ho
 {
 	
 	
-	dbg("Begin");
+	
 
 	// Entities with an index greater than this will corrupt the client's heap because 
 	// the index is sent with only 11 bits of precision (2^11 == 2048).
@@ -2374,7 +2369,7 @@ void CreateBaseline(int player, int eindex, struct entity_state_s *baseline, str
 {
 	
 	
-	dbg("CreateBaseline - Begin");
+	
 	baseline->origin = entity->v.origin;
 	baseline->angles = entity->v.angles;
 	baseline->frame = entity->v.frame;

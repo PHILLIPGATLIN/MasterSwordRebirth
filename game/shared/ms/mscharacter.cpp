@@ -131,7 +131,7 @@ bool chardata_t::ReadData(void *pData, ulong Size)
 	bool ValidVersion = false;
 
 	
-	dbg("Begin");
+	
 
 	CPlayer_DataBuffer m_File(Size);
 	m_File.Write(pData, Size);

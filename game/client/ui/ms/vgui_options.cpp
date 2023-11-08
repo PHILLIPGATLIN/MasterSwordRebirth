@@ -517,12 +517,12 @@ void CPanel_Options::Open(option_e OptionScreen)
 {
 	
 
-	dbg("Call Reset");
+	
 	Reset();
 
 	setVisible(true);
 
-	dbg("Open option panel");
+	
 	m_OpenScreen = OptionScreen;
 	switch (m_OpenScreen)
 	{

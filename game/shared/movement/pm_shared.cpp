@@ -3593,10 +3593,6 @@ extern "C" int PM_GetPhysEntInfo(int ent)
 
 void PM_Init(struct playermove_s *ppmove)
 {
-	
-	
-	dbg("Begin()");
-
 	assert(!pm_shared_initialized);
 
 	pmove = ppmove;

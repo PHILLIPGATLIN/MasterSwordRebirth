@@ -41,7 +41,7 @@ int CHudAction::Init(void)
 int CHudAction::MsgFunc_Action(const char *pszName, int iSize, void *pbuf)
 {
 	
-	dbg("Begin");
+	
 
 	byte AddOrRemove = READ_BYTE();
 	msstring ID = READ_STRING();

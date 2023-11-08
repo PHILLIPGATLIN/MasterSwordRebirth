@@ -75,14 +75,14 @@ void CBaseEntity::SUB_Remove(void)
 {
 	
 
-	dbg("Call Deactivate");
+	
 	Deactivate();
 	if (logfileopt.is_open())
 	{
 		logfileopt << "DELETE ITEM: " << DisplayName();
 		logfileopt << " (" << (IsMSItem() ? ((CBasePlayerItem *)this)->m_iId : 0) << ")\r\n";
 	}
-	dbg("Delete Entity");
+	
 	MSCLGlobals::RemoveEnt(this, true);
 
 	

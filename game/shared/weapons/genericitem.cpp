@@ -168,7 +168,7 @@ CGenericItem* CGenericItemMgr::NewGenericItem(CGenericItem* pGlobalItem)
 		return NULL;
 	}
 
-	dbg("Create Entity for Item");
+	
 #ifdef VALVE_DLL
 	CGenericItem* pItem = GetClassPtr((CGenericItem*)NULL);
 	if ((ulong)pItem == m_LastDestroyedItemID)
@@ -197,14 +197,14 @@ CGenericItem* CGenericItemMgr::NewGenericItem(CGenericItem* pGlobalItem)
 #endif
 		*/
 
-	dbg("Set Item properties");
+	
 	//pItem->iWeaponType = pGlobalItem->iWeaponType;
 	pItem->ItemName = pGlobalItem->ItemName;
 	pItem->m_iId = (int)pItem; //RANDOM_LONG(0,32765);
 	strncpy(pItem->m_Name, pGlobalItem->m_Name, sizeof(pItem->m_Name));
 	if (pGlobalItem->m_Scripts[0]) //This should ALWAYS be true!
 	{
-		dbg("Copy script data from global item");
+		
 		pItem->m_Scripts.add(msnew CScript);
 		pGlobalItem->m_Scripts[0]->CopyAllData(pItem->m_Scripts[0], pItem, pItem);
 		pItem->SetScriptVar("IS_NEW_ITEM", "1");
@@ -214,9 +214,9 @@ CGenericItem* CGenericItemMgr::NewGenericItem(CGenericItem* pGlobalItem)
 	MSCLGlobals::AddEnt(pItem);
 #endif
 
-	dbg("Call event game_precache");
+	
 	pItem->CallScriptEvent("game_precache");
-	dbg("Call CGenericItem::Spawn");
+	
 	pItem->Spawn();
 
 #ifndef VALVE_DLL
@@ -325,7 +325,7 @@ void CGenericItemMgr::GenericItemPrecache(void)
 
 	
 
-	dbg("Add Script commands");
+	
 
 	//GenericItem script commands (only add once per game):
 	if (!m_ScriptCommands.size())
@@ -378,7 +378,7 @@ void CGenericItemMgr::GenericItemPrecache(void)
 		m_ScriptCommands.add(scriptcmdname_t("setviewmodelskin"));
 	}
 
-	dbg("Load Script items.txt");
+	
 
 	byte* pMemFile = NULL, * pStringPtr = NULL;
 	int iFileSize = 65535, i = 0, n;
@@ -433,14 +433,14 @@ void CGenericItemMgr::GenericItemPrecache(void)
 #endif
 
 	//Delete old global items
-	dbg("Delete old global items");
+	
 	CGenericItemMgr::DeleteItems();
 
 	/*#ifdef VALVE_DLL
 	ALERT( at_console, "Loading Mastersword items from: %s...\n", g_MSScriptInfo->ContainerName );
 #endif*/
 
-	dbg("Load global items");
+	
 
 	//GetString(cString, min(FileSize, sizeof(cString)), (char *)pStringPtr, i, "\r\n")
 	while (GetString(cString, min(FileSize, sizeof(cString)), (char*)pStringPtr, i, "\r\n"))
@@ -482,7 +482,6 @@ void CGenericItemMgr::GenericItemPrecache(void)
 		strncpy(pNewItem->m_Name, cString, sizeof(pNewItem->m_Name)); //NewItem.m_Name
 		pNewItem->ItemName = cString;
 
-		dbg(msstring("Load script: ") + cItemFileName);
 		//Log(cItemFileName);
 
 		bool fSuccess = pNewItem->Script_Add(cItemFileName, pNewItem) ? true : false;
@@ -564,39 +563,39 @@ void CGenericItem::Deactivate()
 {
 	
 
-	dbg("Deallocate Attacks");
+	
 	m_Attacks.clear();
 	m_WearPositions.clear();
 	m_WearModelPositions.clear();
 
 	CurrentAttack = NULL;
 
-	dbg("Deallocate Pack data");
+	
 	Container_Deactivate();
-	dbg("Deallocate Drink data");
+	
 	if (DrinkData)
 	{
 		delete (void*)DrinkData;
 		DrinkData = NULL;
 	}
-	dbg("Deallocate Armor data");
+	
 	if (ArmorData)
 	{
 		delete (void*)ArmorData;
 		ArmorData = NULL;
 	}
-	dbg("Deallocate Projectile data");
+	
 	if (ProjectileData)
 	{
 		delete (void*)ProjectileData;
 		ProjectileData = NULL;
 	}
 #ifdef VALVE_DLL
-	dbg("Deallocate Spell data");
+	
 	Spell_Deactivate();
 #endif
 
-	dbg("Deallocate Script");
+	
 	IScripted::Deactivate();
 
 	
@@ -1002,7 +1001,7 @@ bool CGenericItem::UseItem(bool Verbose)
 	/*if( FBitSet(MSProperties(), ITEM_WEARABLE) )
 		return WearItem( );*/
 
-	dbg("PutInAnyPack");
+	
 
 	//Try to put the item in a pack
 	if (!m_pPlayer)
@@ -1440,7 +1439,7 @@ bool CGenericItem::ActivatedByOwner(void)
 void CGenericItem::ListContents()
 {
 	
-	dbg("Begin");
+	
 
 	if (m_pPlayer)
 	{
@@ -1449,7 +1448,7 @@ void CGenericItem::ListContents()
 	}
 
 #ifndef VALVE_DLL
-	dbg("Call ContainerWindowOpen");
+	
 	ContainerWindowOpen(m_iId);
 #endif
 	
@@ -1459,7 +1458,7 @@ msstring ItemThinkProgress;
 void CGenericItem::Think()
 {
 	
-	dbg("Remove marked items");
+	
 
 	if (!Owner() && m_TimeExpire && gpGlobals->time >= m_TimeExpire)
 	{
@@ -1482,16 +1481,16 @@ void CGenericItem::Think()
 		g_ItemRemovalStatus = 0;
 	}
 
-	dbg("ItemPostFrame");
+	
 #ifndef VALVE_DLL
 	//In the server dll this is called from playerpostthink
 	ItemPostFrame();
 #endif
 
-	dbg("RunScriptEvents");
+	
 	RunScriptEvents();
 
-	dbg("Attack");
+	
 	if (Attack_CanAttack())
 	{
 		StartAttack();
@@ -1500,13 +1499,13 @@ void CGenericItem::Think()
 
 #ifdef VALVE_DLL
 	pev->nextthink = gpGlobals->time + 0.1;
-	dbg("Fall");
+	
 	Fall();
 
-	dbg("Move");
+	
 	Move();
 
-	dbg("Spell_Think");
+	
 	Spell_Think();
 #else
 	pev->nextthink = gpGlobals->time;
@@ -1547,11 +1546,11 @@ void CGenericItem::RemoveFromOwner()
 {
 	
 
-	dbg("Call remove script event");
+	
 
 	CallScriptEvent("game_removefromowner");
 
-	dbg("Call CancelAttack");
+	
 	CancelAttack();
 
 	if (pev)
@@ -1563,16 +1562,16 @@ void CGenericItem::RemoveFromOwner()
 	if (m_pPlayer)
 		m_pPlayer->m_TimeResetLegs = 0;
 
-	dbg("Call Container_UnListContents");
+	
 	Container_UnListContents();
 
-	dbg("Call Wearable_RemoveFromOwner");
+	
 	Wearable_RemoveFromOwner();
 
-	dbg("Call RemoveFromContainer");
+	
 	RemoveFromContainer();
 
-	dbg("Call Gear.RemoveItem");
+	
 	if (m_pOwner)
 		m_pOwner->Gear.RemoveItem(this); //Remove me from my owner's packlist
 
@@ -1589,7 +1588,7 @@ void CGenericItem::RemoveFromOwner()
 	}
 #endif
 
-	dbg("Call Wearable_ResetClientUpdate");
+	
 	Wearable_ResetClientUpdate();
 }
 void CGenericItem::RemoveFromContainer()
@@ -1644,7 +1643,6 @@ bool CGenericItem::IsInAttackStance()
 //*********************************************************************************
 //*********************************************************************************
 
-#define genitemdbg(a) dbg(msstring("[") + DisplayName() + "] " + a)
 #define ERROR_MISSING_PARMS MSErrorConsoleText("CGenericItem::ExecuteScriptCmd", UTIL_VarArgs("%s: %s - not enough parameters!\n", Script->m.ScriptFile.c_str(), Cmd.Name().c_str()))
 
 //Register my script commands
@@ -1657,8 +1655,6 @@ void CGenericItem::Script_Setup()
 bool CGenericItem::Script_ExecuteCmd(CScript* Script, SCRIPT_EVENT& Event, scriptcmd_t& Cmd, msstringlist& Params)
 {
 	//Parse one command
-	
-
 	msstring sTemp;
 
 	msstring DebugString = msstring("Action:");
@@ -1667,7 +1663,6 @@ bool CGenericItem::Script_ExecuteCmd(CScript* Script, SCRIPT_EVENT& Event, scrip
 		DebugString += " ";
 		DebugString += Cmd.m_Params[i];
 	}
-	genitemdbg(DebugString);
 
 	//****************************** LISTCONTENTS ***************************
 	if (Cmd.Name() == "listcontents")

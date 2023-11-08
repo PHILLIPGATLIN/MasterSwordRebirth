@@ -410,7 +410,7 @@ int UTIL_EntitiesInBox(CBaseEntity **pList, int listMax, const Vector &mins, con
 {
 	//
 
-	//dbg("Recursion check"); //temporary
+	// //temporary
 	if (startIndex >= gpGlobals->maxEntities) //End recursion if you have no more entities to search (shouldn't happen anyway) MiB Feb2008a
 		return 0;
 
@@ -443,7 +443,7 @@ int UTIL_EntitiesInBox(CBaseEntity **pList, int listMax, const Vector &mins, con
 			maxs.z < pEdict->v.absmin.z)
 			continue;
 
-		//dbg("Sigh"); //temporary
+		// //temporary
 		pEntity = CBaseEntity::Instance(pEdict);
 		if (!pEntity)
 			continue;

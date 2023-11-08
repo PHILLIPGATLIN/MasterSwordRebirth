@@ -387,7 +387,7 @@ void VGUI_ContainerPanel::Update()
 void VGUI_ContainerPanel::AddInventoryItems()
 {
 	
-	dbg("Begin");
+	
 
 	gearitem_t GearItem;
 	mslist<CGenericItem *> Containers;	  //Sort my inventory into Containers and non-containers
@@ -398,7 +398,7 @@ void VGUI_ContainerPanel::AddInventoryItems()
 		{
 			//Add container
 			//Update:  Now display all items, so the player can remove them from here too
-			dbg("Add container");
+			
 			CGenericItem *pGearItem = player.Gear[g - 1];
 			if (!FBitSet(pGearItem->MSProperties(), ITEM_CONTAINER) && //Display everything except non-packs that are held
 				pGearItem->m_Location <= ITEMPOS_HANDS)
@@ -411,7 +411,7 @@ void VGUI_ContainerPanel::AddInventoryItems()
 		}
 		else
 		{
-			dbg("Add hands");
+			
 			GearItem.Name = Localized("#PLAYER_HANDS");
 			GearItem.ID = 0;
 			GearItem.IsContainer = true;

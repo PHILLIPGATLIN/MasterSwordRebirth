@@ -63,7 +63,7 @@ void MSCLGlobals::Initialize()
 {
 	
 
-	dbg("Begin");
+	
 	//Set up g_engfuncs re-directs
 	gpGlobals = &Globals;
 	SetupGlobalEngFuncRedirects();
@@ -137,10 +137,10 @@ void MSCLGlobals::Initialize()
 		gEngfuncs.pfnClientCmd( msstring("ms_id ") + ID + "\n" );
 	}*/
 
-	dbg("Call InitializePlayer");
+	
 	InitializePlayer();
 
-	dbg("Call MSGlobalItemInit");
+	
 	MSGlobalItemInit();
 
 	
@@ -175,7 +175,7 @@ void MSCLGlobals::InitializePlayer()
 void MSCLGlobals::Think()
 {
 	
-	dbg("Begin");
+	
 
 	static float flLastThinkTime = 0;
 	gpGlobals->time = gEngfuncs.GetClientTime();
@@ -185,7 +185,7 @@ void MSCLGlobals::Think()
 
 	//Delete entities with |FL_KILLME
 	//Count backward
-	dbg("Delete entities with |FL_KILLME");
+	
 	for (int e = m_ClEntites.size() - 1; e >= 0; e--)
 		if (FBitSet(m_ClEntites[e]->pev->flags, FL_KILLME))
 			RemoveEnt(m_ClEntites[e]);
@@ -195,7 +195,7 @@ void MSCLGlobals::Think()
 		if (flLastThinkTime <= m_ClEntites[e]->pev->nextthink && m_ClEntites[e]->pev->nextthink < gpGlobals->time)
 			m_ClEntites[e]->Think();
 
-	dbg("Update GUI");
+	
 	VGUI_Think();
 
 	//Last task
@@ -358,17 +358,16 @@ void MSCLGlobals::SpawnIntoServer()
 
 	Cleanup(); //Clean up stuff from the previous map
 
-	dbg("Call player.InitialSpawn");
+	
 	player.InitialSpawn();
 	player.BeginRender();
 
-	dbg("Call CreateStoreMenus");
+	
 	CreateStoreMenus();
 
-	dbg("Call MSChar_Interface::CLInit");
+	
 	MSChar_Interface::CLInit();
 
-	dbg("ShowVGUIMenu( MENU_NEWCHARACTER )");
 	ShowVGUIMenu(MENU_NEWCHARACTER);
 
 	logfile << "DONE\n";
@@ -385,11 +384,10 @@ void MSCLGlobals::Cleanup()
 	player.m_SpellList.clear();
 
 	//Kill the client-side entity list
-	dbg("Call CBasePlayeR::RenderCleanup");
+	
 	player.RenderCleanup();
 
 	// Delete all client-side entities
-	dbg("Call MSCLGlobals::RemoveAllEntities( )");
 	RemoveAllEntities();
 
 	//Remove Environment Special Effects

@@ -61,14 +61,14 @@ void CHudID ::InitHUDData(void)
 int CHudID::Draw(float flTime)
 {
 	
-	dbg("Begin");
+	
 
 	if (!FBitSet(m_iFlags, HUD_ACTIVE) || !ShowHUD())
 		return 1;
 	if (player.m_CharacterState == CHARSTATE_UNLOADED)
 		return 1;
 
-	dbg("Call SearchThink");
+	
 	SearchThink();
 	//if( Alpha <= 0 || !pDrawInfo || !pDrawInfo->Name.len() ) return 1;
 
@@ -83,7 +83,7 @@ int CHudID::Draw(float flTime)
 	}
 
 	int TextHeight, TextWidth;
-	dbg( "Call GetConsoleStringSize" );
+	
 	GetConsoleStringSize( pDrawInfo->Name, &TextWidth, &TextHeight );
 
 	int Y_START;
@@ -94,7 +94,7 @@ int CHudID::Draw(float flTime)
 
 	int x = 5;
 	int y = Y_START - TextHeight; // draw along bottom of screen
-	dbg( "Draw Strings" );
+	
 
 	msstring String = pDrawInfo->Name + "\n";
 	CharUpperBuff( String, 1 );
@@ -119,8 +119,7 @@ int CHudID::Draw(float flTime)
 	else String = "";
 
 	DrawConsoleString( x, y + TextHeight, String );
-
-	enddbg( "CHudID::Draw()" );
+	
 	return 1; */
 }
 
@@ -147,7 +146,7 @@ void CHudID::SearchThink()
 int CHudID::MsgFunc_EntInfo(const char *pszName, int iSize, void *pbuf)
 {
 	
-	dbg("Begin");
+	
 	BEGIN_READ(pbuf, iSize);
 
 	entinfo_t EntData;

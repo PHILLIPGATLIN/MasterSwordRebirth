@@ -64,7 +64,7 @@ int __MsgFunc_StatusIcons(const char *pszName, int iSize, void *pbuf); //Drigien
 int __MsgFunc_InitHUD(const char *pszName, int iSize, void *pbuf)
 {
 	
-	dbg("Begin");
+	
 
 	logfile << Logger::LOG_INFO << "[__MsgFunc_InitHUD]\n";
 	gHUD.MsgFunc_InitHUD(pszName, iSize, pbuf);
@@ -506,10 +506,10 @@ void CHud::Think(void)
 {
 	
 
-	dbg("Begin");
+	
 
 	//Master Sword
-	dbg("Call MSCLGlobals::Think");
+	
 	MSCLGlobals::Think();
 	//------------
 	int newfov = 0;
@@ -522,7 +522,7 @@ void CHud::Think(void)
 		}
 	}	
 
-	dbg("FOV Operations");
+	
 	newfov = HUD_GetFOV();
 	if (newfov == 0)
 	{
@@ -555,7 +555,7 @@ void CHud::Think(void)
 
 	m_Music->Think();
 
-	dbg("End");
+	
 
 	
 }
@@ -564,7 +564,7 @@ void CHud::VidInit(void)
 {
 	
 
-	dbg("Half-life Video Initialization");
+	
 	m_scrinfo.iSize = sizeof(m_scrinfo);
 	GetScreenInfo(&m_scrinfo);
 
@@ -630,7 +630,7 @@ void CHud::VidInit(void)
 	m_iFontHeight = numberRect.bottom - numberRect.top;
 
 	//Master Sword
-	dbg("MS Vid_Initialization - chars");
+	
 	m_HUD_numberSML_0 = GetSpriteIndex("smlnum_0");
 	m_HUD_char_slashSML = GetSpriteIndex("smlslash");
 	m_HUD_char_slash = GetSpriteIndex("charslash");
@@ -646,7 +646,7 @@ void CHud::VidInit(void)
 
 	//Reload the Master Sword global sprite/TGA list
 	//(only sprites are reloaded, not TGAs)
-	dbg("Reload global sprite list");
+	
 	MSBitmap::ReloadSprites();
 
 	
@@ -765,7 +765,7 @@ float ClFOV = 0; //FOV, in radians
 int CHud::MsgFunc_SetFOV(const char *pszName, int iSize, void *pbuf)
 {
 	
-	dbg("Begin");
+	
 
 	BEGIN_READ(pbuf, iSize);
 

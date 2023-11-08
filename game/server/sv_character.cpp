@@ -154,7 +154,7 @@ void chardata_t::ReadMaps1(byte DataID, CPlayer_DataBuffer &m_File)
 	{
 		//Read Maps Visited
 		//Must come DIRECTLY after reading the savedata_t Data
-		dbg("Read Stats");
+		
 		int Maps = 0;
 		m_File.ReadInt(Maps); //[INT]
 		m_VisitedMaps.clear();
@@ -237,7 +237,7 @@ void chardata_t::ReadSpells1(byte DataID, CPlayer_DataBuffer &m_File)
 	if (DataID == CHARDATA_SPELLS1)
 	{
 		//Read Magic spells
-		dbg("Read Magic spells");
+		
 
 		byte Spells = 0;
 		m_File.ReadByte(Spells); //[BYTE]
@@ -256,7 +256,7 @@ void chardata_t::ReadItems1(byte DataID, CPlayer_DataBuffer &m_File)
 	if (DataID == CHARDATA_ITEMS1 || DataID == CHARDATA_ITEMS2)
 	{
 		//Read Items
-		dbg("Read Items");
+		
 
 		byte GearItems = 0;
 		m_File.ReadByte(GearItems); //[SHORT]
@@ -278,7 +278,7 @@ void chardata_t::ReadStorageItems1(byte DataID, CPlayer_DataBuffer &m_File)
 	if (DataID == CHARDATA_STORAGE1)
 	{
 		//Read storage items
-		dbg("Read Storage Items");
+		
 
 		short Storages = 0;
 		m_File.ReadShort(Storages); //[SHORT]
@@ -310,7 +310,7 @@ void chardata_t::ReadCompanions1(byte DataID, CPlayer_DataBuffer &m_File)
 	if (DataID == CHARDATA_COMPANIONS1)
 	{
 		//Read Companions
-		dbg("Read Companions");
+		
 
 		short Companions = 0;
 		m_File.ReadShort(Companions); //[SHORT]
@@ -504,7 +504,7 @@ void WriteItem(CPlayer_DataBuffer &gFile, genericitem_full_t &Item);
 void MSChar_Interface::SaveChar(CBasePlayer *pPlayer, savedata_t *pData)
 {
 	
-	dbg("Begin");
+	
 
 	//#ifndef VALVE_DLL
 	//	if( MSGlobals::ServerSideChar )
@@ -624,7 +624,7 @@ void MSChar_Interface::SaveChar(CBasePlayer *pPlayer, savedata_t *pData)
 	}
 
 	//Save magic spells
-	dbg("Write spells");
+	
 
 	spellgroup_v &SpellList = pPlayer->m_SpellList;
 	gFile.WriteByte(CHARDATA_SPELLS1); //[BYTE - CHUNK - SPELLS]
@@ -634,7 +634,7 @@ void MSChar_Interface::SaveChar(CBasePlayer *pPlayer, savedata_t *pData)
 		gFile.WriteString(SpellList[s]); //[X STRINGS]
 
 	//Save Items
-	dbg("Write Items");
+	
 	gFile.WriteByte(CHARDATA_ITEMS2); //[BYTE - CHUNK - ITEMS]
 
 	static mslist<CGenericItem *> WriteList;
@@ -741,7 +741,7 @@ void MSChar_Interface::SaveChar(CBasePlayer *pPlayer, savedata_t *pData)
 	
 	if (FnDataHandler::IsEnabled())
 	{
-		dbg("Write to FN");
+		
 		// If Central Server is enabled, save to the Central Server instead of locally
 		FnDataHandler::CreateOrUpdateCharacter(pPlayer, pPlayer->m_CharacterNum, (const char*)gFile.m_Buffer, gFile.GetFileSize(), (pData == NULL));
 		gFile.Close();
@@ -749,14 +749,14 @@ void MSChar_Interface::SaveChar(CBasePlayer *pPlayer, savedata_t *pData)
 	}
 	else if (!MSGlobals::ServerSideChar)
 	{
-		dbg("Write to client");
+		
 		charinfo_t &CharInfo = pPlayer->m_CharInfo[pPlayer->m_CharacterNum];
 		CharInfo.AssignChar(pPlayer->m_CharacterNum, LOC_CLIENT, (char *)gFile.m_Buffer, gFile.GetFileSize(), pPlayer);
 		gFile.Close();
 		return;
 	}
 
-	dbg("Write to file");
+	
 	gFile.WriteToFile(pszFileName, "wb", true);
 	gFile.Close();
 

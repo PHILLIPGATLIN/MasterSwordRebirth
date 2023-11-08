@@ -394,7 +394,7 @@ int DLLEXPORT HUD_Key_Event(int down, int keynum, const char *pszCurrentBinding)
 	
 	
 
-	dbg("Begin");
+	
 	if (gViewPort)
 		return gViewPort->KeyInput(down, keynum, pszCurrentBinding);
 
@@ -759,7 +759,7 @@ void DLLEXPORT CL_CreateMove(float frametime, struct usercmd_s *cmd, int active)
 	
 	
 
-	dbg("Begin");
+	
 
 	float spd;
 	vec3_t viewangles;
@@ -841,7 +841,7 @@ void DLLEXPORT CL_CreateMove(float frametime, struct usercmd_s *cmd, int active)
 		}
 
 		// Allow mice and other controllers to add their inputs
-		dbg("Call IN_Move");
+		
 		IN_Move(frametime, cmd);
 	}
 

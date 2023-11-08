@@ -534,36 +534,36 @@ void CBasePlayerItem::ItemPostFrame(void)
 {
 	
 
-	dbg("Begin");
+	
 
 	if (!m_pPlayer)
 		return;
 
-	//dbg( "AttackButtonDown" );
+	//
 	//if( FBitSet(m_pPlayer->pbs.ButtonsDown,IN_ATTACK) )
 	//	AttackButtonDown( );
 	//else AttackButtonUp( );
 
-	dbg("Attack2ButtonDown");
+	
 	if (FBitSet(m_pPlayer->pbs.ButtonsDown, IN_ATTACK2))
 		Attack2ButtonDown(); // +attack2
 	else
 		Attack2ButtonUp();
 
-	dbg("AllButtonsReleased");
+	
 	if (!FBitSet(m_pPlayer->pbs.ButtonsDown, IN_ATTACK | IN_ATTACK2))
 		AllButtonsReleased(); // no fire buttons down
 
-	dbg("Idle");
+	
 	if (ShouldIdle())
 		Idle();
 
-	dbg("Think");
+	
 #ifdef VALVE_DLL
 	if (MSProperties() & ITEM_GENERIC)
 		Think();
 #endif
-	dbg("End");
+	
 }
 
 bool CBasePlayerWeapon::ShouldIdle(void)

@@ -153,7 +153,7 @@ void CBasePlayer::Think(void)
 {
 	
 
-	dbg("Begin");
+	
 	cl_entity_s* clplayer = gEngfuncs.GetLocalPlayer();
 	pev->iuser1 = clplayer->index;
 	pev->origin = clplayer->origin;
@@ -169,13 +169,13 @@ void CBasePlayer::Think(void)
 
 	//g_flHealth = m_HP; //For code that doesn't include entity headers
 
-	dbg("Call CheckSpeed");
+	
 	CheckSpeed();
 
-	dbg("Call gHUD.m_Fatigue->DoThink");
+	
 	gHUD.m_Fatigue->DoThink();
 
-	dbg("Call Script Event game_think");
+	
 	gHUD.m_HUDScript->CallScriptEvent("game_think");
 
 	//If I auto-used an item, return to original item when the attack is done
@@ -194,7 +194,7 @@ void CBasePlayer::Think(void)
 		}
 	}*/
 
-	//dbg( "Autosave" );
+	//
 	//MSChar_Interface::AutoSave( this );
 
 	//	Print( "Entities: %i\n", MS_CLGlobals->num_ents );
@@ -542,7 +542,7 @@ Run ItemPostFrame() as nessesary
 void HUD_WeaponsPostThink(local_state_s* from, local_state_s* to, usercmd_t* cmd, double time, unsigned int random_seed)
 {
 	
-	dbg("Begin");
+	
 
 	if (player.m_CharacterState == CHARSTATE_UNLOADED)
 		return;
@@ -565,7 +565,7 @@ void HUD_WeaponsPostThink(local_state_s* from, local_state_s* to, usercmd_t* cmd
 
 	player.pev->button = cmd->buttons;
 
-	dbg("SetKeys");
+	
 	player.SetKeys();
 
 	if (FBitSet(player.pbs.ButtonsDown, IN_ATTACK))
@@ -615,7 +615,7 @@ void HUD_WeaponsPostThink(local_state_s* from, local_state_s* to, usercmd_t* cmd
 
 	//if( !player.IsAlive() ) return;
 
-	dbg("Set variables");
+	
 
 	// For random weapon events, use this seed to seed random # generator
 	player.random_seed = random_seed;
@@ -642,10 +642,10 @@ void HUD_WeaponsPostThink(local_state_s* from, local_state_s* to, usercmd_t* cmd
 	g_finalstate = to;
 
 	//Catch a weapon switch
-	//dbg( "CheckHandSwitch" );
+	//
 	//player.CheckHandSwitch( );
 
-	//dbg( "Player Think" );
+	//
 	//player.Think( );
 
 	/*
@@ -662,7 +662,7 @@ void HUD_WeaponsPostThink(local_state_s* from, local_state_s* to, usercmd_t* cmd
 	}*/
 
 	// Assume that we are not going to switch weapons
-	dbg("Preserve states");
+	
 	to->client.m_iId = from->client.m_iId;
 
 	// Copy in results of prediction code
@@ -765,7 +765,7 @@ void __CmdFunc_PlayerDesc(void)
 int __MsgFunc_Item(const char* pszName, int iSize, void* pbuf)
 {
 	
-	dbg("Begin");
+	
 
 	BEGIN_READ(pbuf, iSize);
 	byte Operation = READ_BYTE();
@@ -776,7 +776,7 @@ int __MsgFunc_Item(const char* pszName, int iSize, void* pbuf)
 		//New item
 	case 0:
 	{
-		dbg("Add item");
+		
 		CGenericItem* pItem = ReadGenericItem(true);
 		if (pItem)
 		{
@@ -809,7 +809,7 @@ int __MsgFunc_Item(const char* pszName, int iSize, void* pbuf)
 	//Update existing item
 	case 1:
 	{
-		dbg("Update item");
+		
 		ulong lID = READ_LONG();
 		READ_REWIND_LONG(); //I read the ID, put the offset back so that ReadGenericItem() can read it
 		CGenericItem* pItem = MSUtil_GetItemByID(lID);
@@ -837,7 +837,7 @@ int __MsgFunc_Item(const char* pszName, int iSize, void* pbuf)
 	//Remove item
 	case 2:
 	{
-		dbg("Remove item");
+		
 		ulong ItemID = READ_LONG();
 		CGenericItem* pItem = MSUtil_GetItemByID(ItemID, &player);
 		if (pItem)
@@ -860,17 +860,17 @@ int __MsgFunc_Item(const char* pszName, int iSize, void* pbuf)
 	//Add to container
 	case 3:
 	{
-		dbg("Add item to container");
+		
 		ulong ContainerID = READ_LONG();
 
-		dbg("Read Long");
+		
 		CGenericItem* pContainer = MSUtil_GetItemByID(ContainerID, &player);
 
-		dbg("get pContainer");
+		
 		if (!pContainer)
 			MSErrorConsoleText("__MsgFunc_Item()", msstring("Got 'add to container' msg but client couldn't find container") + (int)ContainerID);
 
-		dbg("get pItem");
+		
 		CGenericItem* pItem = ReadGenericItem(true);
 		if (!pItem)
 			MSErrorConsoleText("__MsgFunc_Item()", "Got 'add to container' msg but client couldn't find item");
@@ -885,7 +885,7 @@ int __MsgFunc_Item(const char* pszName, int iSize, void* pbuf)
 	//Remove from container
 	case 4:
 	{
-		dbg("Remove item from container");
+		
 		ulong ContainerID = READ_LONG();
 		CGenericItem* pContainer = MSUtil_GetItemByID(ContainerID, &player);
 		if (!pContainer)
@@ -909,7 +909,7 @@ int __MsgFunc_Item(const char* pszName, int iSize, void* pbuf)
 	//Show storage
 	case 5:
 	{
-		dbg("Show storage window");
+		
 		msstring DisplayName = READ_STRING();
 		msstring StorageName = READ_STRING();
 		float flFeeRatio = READ_FLOAT();
@@ -922,7 +922,7 @@ int __MsgFunc_Item(const char* pszName, int iSize, void* pbuf)
 	{
 		//MiB DEC2007a - Redundant skool of redundancy
 		// Params: ID, Attacknum, prop, value
-		dbg("AttackProps");
+		
 		ulong lID = READ_LONG();
 		CGenericItem* pItem = MSUtil_GetItemByID(lID);
 
@@ -1008,7 +1008,7 @@ int __MsgFunc_Item(const char* pszName, int iSize, void* pbuf)
 		//Shuriken FEB2008a - setviewmodelprop
 		//setviewmodelprop edits APR2008a MIB
 	{
-		dbg("setviewmodelprop");
+		
 		msstring Mode = READ_STRING();
 		int iHand = READ_SHORT();
 		int iParam1;
@@ -1088,11 +1088,9 @@ int __MsgFunc_Item(const char* pszName, int iSize, void* pbuf)
 
 	if (bDoInvUpdate)
 	{
-		dbg("UpdateActiveMenus()");
 		UpdateActiveMenus();
 	}
 
-	
 	return 1;
 }
 
@@ -1305,7 +1303,7 @@ bool ShowChat() { return true; } //Always show chat
 int __MsgFunc_Hands(const char* pszName, int iSize, void* pbuf)
 {
 	
-	dbg("Begin");
+	
 
 	BEGIN_READ(pbuf, iSize);
 	player.SwitchHands(READ_BYTE());
@@ -1323,14 +1321,10 @@ extern float g_fMenuLastClosed;
 
 int __MsgFunc_CLDllFunc(const char* pszName, int iSize, void* pbuf)
 {
-	
-	dbg("Begin");
-
 	BEGIN_READ(pbuf, iSize);
 
 	byte Cmd = READ_BYTE();
 
-	dbg(msstring("Cmd: ") + (int)Cmd);
 	switch (Cmd)
 	{
 	case 0: //Spawned

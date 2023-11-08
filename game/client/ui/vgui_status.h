@@ -189,7 +189,7 @@ public:
 		
 		StatusIcons = this;
 
-		dbg("Begin");
+		
 		setParent(pParent);
 		SetBGColorRGB(Color_Transparent);
 
@@ -354,14 +354,14 @@ void KillAll()
 int __MsgFunc_StatusIcons(const char *pszName, int iSize, void *pbuf)
 {
 	
-	dbg("Reading..");
+	
 	BEGIN_READ(pbuf, iSize);
 	int Type = READ_SHORT();
 
 	//Kill All Status Icons
 	if (Type == REMOVE_IMG)
 	{
-		dbg("Reading.. Remove Img");
+		
 		const char *ID = READ_STRING();
 		if (!strcmp(ID, "all"))
 			KillAllImgs();
@@ -372,7 +372,7 @@ int __MsgFunc_StatusIcons(const char *pszName, int iSize, void *pbuf)
 	//Kill All Status Icons
 	else if (Type == REMOVE_STATUS)
 	{
-		dbg("Reading.. Remove Status");
+		
 		const char *ID = READ_STRING();
 		if (!strcmp(ID, "all"))
 			KillAllStatus();
@@ -383,14 +383,14 @@ int __MsgFunc_StatusIcons(const char *pszName, int iSize, void *pbuf)
 	//Kill All Icons
 	else if (Type == REMOVE_ALL)
 	{
-		dbg("Reading.. Remove All");
+		
 		KillAll();
 	}
 
 	//Add Status Icon
 	else if (Type == ADD_STATUS)
 	{
-		dbg("Reading.. Add Status");
+		
 		msstring Icon = READ_STRING();
 		msstring Name = READ_STRING();
 		float Dur = READ_FLOAT();
@@ -402,7 +402,7 @@ int __MsgFunc_StatusIcons(const char *pszName, int iSize, void *pbuf)
 	//Add Img Icon
 	else if (Type == ADD_IMG)
 	{
-		dbg("Reading.. Add Img");
+		
 		msstring Icon = READ_STRING();
 		msstring Name = READ_STRING();
 		int x = READ_SHORT();

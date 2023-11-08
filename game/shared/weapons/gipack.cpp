@@ -340,7 +340,7 @@ int CGenericItem::Container_AddItem(CGenericItem *pItem)
 	//Thothie MAR2010_15 - trying to restore stackable stacks sans char corruption
 	if ( FBitSet( pItem->Properties, ITEM_GROUPABLE ) )
 	{
-		dbg("Stack Attempt");
+		
 		CBasePlayer	*pOwner = (CBasePlayer *)m_pOwner;
 		if ( pOwner )
 		{
@@ -364,7 +364,7 @@ int CGenericItem::Container_AddItem(CGenericItem *pItem)
 			}
 		}
 	}
-	dbg("Post Stack Attempt");
+	
 	*/
 
 	PackData->ItemList.AddItem(pItem);

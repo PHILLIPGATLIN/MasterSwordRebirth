@@ -90,7 +90,7 @@ void CHudScript::InitHUDData( void )
 void CHudScript::Think( )
 {
 	
-	dbg( "RunScriptEvents" );
+	
 	RunScriptEvents( );
 	
 }

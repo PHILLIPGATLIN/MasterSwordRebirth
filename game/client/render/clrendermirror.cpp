@@ -897,7 +897,7 @@ void CMirror::RenderMirroredWorld(int RecurseCall)
 	//Set render target back to HL framebuffer
 	CRender::SetRenderTarget(false);
 
-	dbg("Render Mirror within Mirror");
+	
 
 	int ChildMirrors = 0;
 	if (!m_Parent && !m_Texture->Mirror.NoWorld)

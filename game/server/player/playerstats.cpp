@@ -163,7 +163,7 @@ std::tuple<bool, int> CBasePlayer::LearnSkill(int iStat, int iStatType, int Enem
 			htp.fadeoutTime = 3.0;
 			htp.holdTime = 2.0;
 			htp.fxTime = 0.6;
-			dbg("HudMessage");
+			
 			UTIL_HudMessage(this, htp, UTIL_VarArgs("%s %s +1\n", SkillStatList[iStatIdx].Name, SkillTypeList[iBestSubstatId]));
 
 			if (!is_spell_stat)
@@ -177,7 +177,7 @@ std::tuple<bool, int> CBasePlayer::LearnSkill(int iStat, int iStatType, int Enem
 				UTIL_HudMessage(this, htp, UTIL_VarArgs("%s %s +1\n", SkillStatList[iStatIdx].Name, SpellTypeList[iBestSubstatId]));
 			}
 
-			dbg("game_learnskill");
+			
 			msstringlist Params;
 			Params.add(SkillStatList[iStatIdx].Name);
 			if (!is_spell_stat)

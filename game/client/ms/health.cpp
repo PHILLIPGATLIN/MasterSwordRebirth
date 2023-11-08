@@ -118,7 +118,7 @@ int CHudHealth::VidInit(void)
 int CHudHealth::MsgFunc_HP(const char *pszName, int iSize, void *pbuf)
 {
 	
-	dbg("Begin");
+	
 
 	BEGIN_READ(pbuf, iSize);
 	int x = READ_SHORT(), iIsMaxHP = READ_BYTE();
@@ -140,7 +140,7 @@ int CHudHealth::MsgFunc_HP(const char *pszName, int iSize, void *pbuf)
 int CHudHealth::MsgFunc_MP(const char *pszName, int iSize, void *pbuf)
 {
 	
-	dbg("Begin");
+	
 
 	BEGIN_READ(pbuf, iSize);
 	int x = READ_SHORT(), iIsMaxMP = READ_BYTE();
@@ -163,7 +163,7 @@ int CHudHealth::MsgFunc_MP(const char *pszName, int iSize, void *pbuf)
 int CHudHealth::MsgFunc_Damage(const char *pszName, int iSize, void *pbuf)
 {
 	
-	dbg("Begin");
+	
 
 	BEGIN_READ(pbuf, iSize);
 

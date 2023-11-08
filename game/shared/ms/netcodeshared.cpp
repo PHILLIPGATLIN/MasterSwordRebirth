@@ -92,7 +92,7 @@ void CBasePlayer::SendChar(charinfo_base_t &CharBase)
 void MSChar_Interface::Think_SendChar(CBasePlayer *pPlayer)
 {
 	
-	dbg("Begin");
+	
 
 	if (MSGlobals::ServerSideChar)
 		return;
@@ -221,7 +221,7 @@ void MSChar_Interface::HL_SVNewIncomingChar(CBasePlayer *pPlayer, int CharIdx, u
 void MSChar_Interface::HL_SVReadCharData(CBasePlayer *pPlayer, const char *UUEncodedData)
 {
 	
-	dbg("Begin");
+	
 
 	charsendinfo_t &SendInfo = pPlayer->m_CharSend;
 
@@ -282,7 +282,7 @@ void MSChar_Interface::HL_CLNewIncomingChar(int CharIdx, uint DataLen)
 void MSChar_Interface::HL_CLReadCharData()
 {
 	
-	dbg("Begin");
+	
 
 	charsendinfo_t &SendInfo = player.m_CharSend;
 

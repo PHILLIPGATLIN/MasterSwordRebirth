@@ -259,10 +259,10 @@ void CBasePlayer::InitialSpawn(void)
 	for (int i = 0; i < MAX_CHARSLOTS; i++)
 		m_CharInfo[i].Index = i;
 
-	dbg("Call CreateStats");
+	
 	CreateStats();
 
-	dbg("Call Script Spawn");
+	
 
 	//Load the script file and precache all models/sounds it uses
 #ifdef VALVE_DLL
@@ -272,7 +272,7 @@ void CBasePlayer::InitialSpawn(void)
 		MSErrorConsoleText("CBasePlayer::InitialSpawn()", msstring("Missing ") + PLAYER_SCRIPT);
 
 	//Add all the player-initiated effects.  Such as sit, lay down, emotes, etc.
-	dbg("Add default effects to player");
+	
 
 	/*
 		//Thothie MAR2012 debuggary
@@ -745,7 +745,7 @@ bool CBasePlayer::UseItem(int iHand, bool bVerbose)
 		iUseHand = m_PrefHand;
 	}
 
-	/*dbg( "Remove weapon from sheath" );
+	/*
 	if( DrawWeapon )
 	{
 		//Try to find a weapon to pull out from a sheath
@@ -783,7 +783,7 @@ bool CBasePlayer::UseItem(int iHand, bool bVerbose)
 
 	CGenericItem* pUse = Hand(iUseHand);
 
-	dbg("Call UseItem");
+	
 	if (pUse && !pUse->UseItem(bVerbose))
 	{
 		//if( bVerbose ) SendInfoMsg( "You cannot use %s\n", SPEECH_GetItemName( Hand[iUseHand] ) );

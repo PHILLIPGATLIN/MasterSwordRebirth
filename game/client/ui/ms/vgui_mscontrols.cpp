@@ -104,8 +104,6 @@ void CImageDelayed::LoadImg( )
 
 	if( m_TGAorSprite )
 	{
-		dbg( "Calling setImage" );
-		dbg( msstring("Image Name = ") + m_ImageName.c_str() );
 		setImage( m_pTGA=MSBitmap::GetTGA( m_ImageName ) ); //load image
 	}
 	else
@@ -726,7 +724,7 @@ void VGUI_Container::PurgeButtons( )
 void VGUI_TextPanel::KeyInput( int down, int keynum, const char *pszCurrentBinding )
 {
 	
-	dbg( "Begin" );
+	
 
 	if( !m_Active )
 		return;

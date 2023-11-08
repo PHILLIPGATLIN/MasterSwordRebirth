@@ -844,7 +844,7 @@ void CFuncRotating ::Rotate(void)
 void CFuncRotating ::RotatingUse(CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value)
 {
 	
-	dbg("Begin");
+	
 	// is this a brush that should accelerate and decelerate when turned on/off (fan)?
 	if (FBitSet(pev->spawnflags, SF_BRUSH_ACCDCC))
 	{

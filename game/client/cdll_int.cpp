@@ -282,10 +282,10 @@ int DLLEXPORT HUD_VidInit(void)
 {
 	gClient.VideoInit();
 
-	dbg("Call VGui_Startup");
+	
 	VGui_Startup();
 
-	dbg("Call Glow");
+	
 	// IMAGE-SPACE GLOW - Thothie TWHL JUN2010_22 - see comments in tri.cpp
 	InitScreenGlow();
 

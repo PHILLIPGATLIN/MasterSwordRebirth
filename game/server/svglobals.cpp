@@ -226,7 +226,7 @@ void MSWorldSpawn()
 void MSGameThink()
 {
 	
-	dbg("Call FnDataHandler::Think");
+	
 	FnDataHandler::Think();
 	
 }
@@ -262,7 +262,7 @@ void MSGameEnd()
 	gModelPrecacheCount = 0;
 	gSoundPrecacheCount = 0;
 	
-	dbg("Call Deactivate on all Entities");
+	
 	//Deallocate any 'extra' memory the mod allocated for any entity
 	edict_t *pEdict = g_engfuncs.pfnPEntityOfEntIndex(0);
 	if (pEdict)
@@ -277,13 +277,11 @@ void MSGameEnd()
 
 			msstring dbgstr_classname = STRING(pEntity->pev->classname);
 
-			dbg(msstring("Call Deactivate on Entity: ") + pEntity->DisplayName() + " | " + STRING(pEntity->pev->classname));
 			pEntity->Deactivate();
 			REMOVE_ENTITY(pEntity->edict());
 		}
 
 	//Delete global items
-	dbg("Call CGenericItemMgr::DeleteItems( )");
 	CGenericItemMgr::DeleteItems();
 
 	//Delete global stores
@@ -292,11 +290,10 @@ void MSGameEnd()
 	//Delete global script commands -- UNDONE: Keep these through level changes
 	//CScript::Globals.Deactivate();
 
-	dbg("Call CRaceManager::DeleteAllRaces( )");
 	CRaceManager::DeleteAllRaces();
 
 	//Delete gamerules
-	dbg("delete g_pGameRules");
+	
 	if (g_pGameRules)
 	{
 		delete g_pGameRules;
@@ -305,7 +302,7 @@ void MSGameEnd()
 
 	//Thothie - I've not added anything here but there's a game error that generates here
 	//MSGameEnd --> Call MSGlobals::EndMap
-	dbg("Call MSGlobals::EndMap");
+	
 	MSGlobals::EndMap();
 
 	//Model precache dumpfile

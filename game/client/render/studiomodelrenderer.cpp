@@ -1242,8 +1242,6 @@ StudioDrawModel
 ====================
 */
 
-//#define rdrdbg( a )
-
 extern bool g_FirstRender;
 extern CGameStudioModelRenderer g_StudioRenderer;
 
@@ -1260,7 +1258,7 @@ void RenderModel(cl_entity_t* pEntity)
 int CStudioModelRenderer::StudioDrawModel(int flags)
 {
 	
-	dbg("Begin");
+	
 
 	//if( !FBitSet(flags, STUDIO_RENDER) ) return 1;
 
@@ -1385,7 +1383,7 @@ int CStudioModelRenderer::StudioDrawModel(int flags)
 			/*static msstringlist Parameters;
 			Parameters.clearitems( );
 			Parameters.add( UTIL_VarArgs("%i",RenderEnt.curstate.number) );
-			dbg( "call game_render on viewmodel" );
+			
 			pItem->CallScriptEvent( "game_render", &Parameters );*/
 
 			//Check if anim finished
@@ -1397,7 +1395,7 @@ int CStudioModelRenderer::StudioDrawModel(int flags)
 				//&& FBitSet(flags, STUDIO_EVENTS) )
 				&& FBitSet(flags, STUDIO_RENDER))
 			{
-				dbg("call game_viewanimdone on viewmodel");
+				
 				pItem->CallScriptEvent("game_viewanimdone");
 				if (ViewModel_ExclusiveViewHand == hand)
 					ViewModel_ExclusiveViewHand = -1;

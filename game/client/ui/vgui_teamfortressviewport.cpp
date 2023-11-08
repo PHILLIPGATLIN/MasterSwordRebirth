@@ -107,7 +107,7 @@ void VGUI_Think()
 	
 	for (int i = 0; i < gViewPort->m_Menus.size(); i++)
 	{
-		dbg(i);
+		
 		gViewPort->m_Menus[i]->Think();
 	}
 	
@@ -518,7 +518,7 @@ TeamFortressViewport::TeamFortressViewport(int x, int y, int wide, int tall) : P
 
 	int r, g, b, a;
 
-	dbg("Setup Schemes");
+	
 	Scheme *pScheme = App::getInstance()->getScheme();
 
 	// primary text color
@@ -565,7 +565,7 @@ TeamFortressViewport::TeamFortressViewport(int x, int y, int wide, int tall) : P
 	}
 
 	//CSchemeManager *pSchemes = gViewPort->GetSchemeManager();
-	dbg("Setup MS Fonts");
+	
 	g_FontSml = m_SchemeManager.getFont(m_SchemeManager.getSchemeHandle("Briefing Text"));
 	g_FontTitle = m_SchemeManager.getFont(m_SchemeManager.getSchemeHandle("Title Font"));
 	g_FontID = m_SchemeManager.getFont(m_SchemeManager.getSchemeHandle("ID Text"));
@@ -573,10 +573,10 @@ TeamFortressViewport::TeamFortressViewport(int x, int y, int wide, int tall) : P
 	App::getInstance()->setScheme(pScheme);
 
 	// VGUI MENUS
-	dbg("Call CreateVGUIMenus");
+	
 	CreateVGUIMenus();
 
-	dbg("Call CreateScoreBoard");
+	
 	CreateScoreBoard();
 	//CreateCommandMenu();
 
@@ -607,7 +607,7 @@ void TeamFortressViewport::Initialize(void)
 	//Turn off HUDs
 	gHUD.m_iHideHUDDisplay |= HIDEHUD_ALL;
 
-	dbg("Initialize MS VGUI Menus");
+	
 	if (m_pStoreMenu)
 		m_pStoreMenu->Initialize();
 	if (m_pStoreBuyMenu)
@@ -630,14 +630,14 @@ void TeamFortressViewport::Initialize(void)
 		m_pMainMenu->Initialize();
 
 	//------------
-	dbg("Call m_pScoreBoard->Initialize");
+	
 	if (m_pScoreBoard)
 	{
 		m_pScoreBoard->Initialize();
 		HideScoreBoard();
 	}
 
-	dbg("Call m_pSpectatorPanel->setVisible");
+	
 	if (m_pSpectatorPanel)
 	{
 		// Spectator menu doesn't need initializing
@@ -645,10 +645,10 @@ void TeamFortressViewport::Initialize(void)
 	}
 
 	// Make sure all menus are hidden
-	dbg("Call HideVGUIMenu");
+	
 	HideVGUIMenu();
 
-	dbg("Call HideCommandMenu");
+	
 	HideCommandMenu();
 
 	// Clear out some data
@@ -661,7 +661,7 @@ void TeamFortressViewport::Initialize(void)
 	g_iPlayerClass = 0;
 	g_iTeamNumber = 0;
 
-	dbg("Init Teamnames");
+	
 	 strncpy(m_sMapName,  "", sizeof(m_sMapName) );
 	 strncpy(m_szServerName,  "", sizeof(m_szServerName) );
 	for (int i = 0; i < 5; i++)
@@ -1362,7 +1362,7 @@ CMenuPanel *TeamFortressViewport::CreateTextWindow(int iTextToShow)
 void TeamFortressViewport::ShowVGUIMenu(int iMenu)
 {
 	
-	dbg("TeamFortressViewport::ShowVGUIMenu - Begin");
+	
 	CMenuPanel *pNewMenu = NULL;
 
 	// Don't open menus in demo playback
@@ -1370,7 +1370,7 @@ void TeamFortressViewport::ShowVGUIMenu(int iMenu)
 		return;
 
 	// Don't create one if it's already in the list
-	/*dbg( "Check if menu is already shown" );
+	/*
 	if (m_pCurrentMenu)
 	{
 		CMenuPanel *pMenu = m_pCurrentMenu;
@@ -1385,12 +1385,12 @@ void TeamFortressViewport::ShowVGUIMenu(int iMenu)
 	switch (iMenu)
 	{
 	case 0:
-		dbg("Hide Menu");
+		
 		HideVGUIMenu();
 		break;
 
 	case MENU_INTRO:
-		dbg("MENU_INTRO");
+		
 		pNewMenu = CreateTextWindow(SHOW_MOTD);
 		break;
 
@@ -1399,7 +1399,7 @@ void TeamFortressViewport::ShowVGUIMenu(int iMenu)
 	case MENU_STORESELL:
 	case MENU_STORAGE:
 		//Hide all visible menus first
-		dbg("MENU_STORE/MENU_STOREBUY/MENU_STORESELL/MENU_STORAGE");
+		
 		if (m_pCurrentMenu)
 			HideVGUIMenu();
 		pNewMenu = ShowStoreMenu(iMenu); //Master Sword
@@ -1409,7 +1409,7 @@ void TeamFortressViewport::ShowVGUIMenu(int iMenu)
 
 	case MENU_CONTAINER:
 		//Can only show container if there's no current window open
-		dbg("MENU_CONTAINER");
+		
 		if (!m_pCurrentMenu && !(gHUD.m_iHideHUDDisplay & HIDEHUD_ALL))
 		{
 			pNewMenu = m_pContainerMenu;
@@ -1419,20 +1419,16 @@ void TeamFortressViewport::ShowVGUIMenu(int iMenu)
 
 	case MENU_NEWCHARACTER:
 		//Hide all visible menus first
-		dbg("MENU_NEWCHARACTER (Hide old)");
 		HideVGUIMenu();
-
-		dbg("MENU_NEWCHARACTER (Create new)");
 		pNewMenu = CreateNewCharacterPanel();
 		pNewMenu->setParent(this);
-		dbg("MENU_NEWCHARACTER (Reset)");
 		pNewMenu->Reset();
 		m_Menus.add(pNewMenu);
 		break;
 
 	case MENU_STATS:
 		//Can only show stats if there's no current window open
-		dbg("MENU_STATS");
+		
 		if (!m_pCurrentMenu && !(gHUD.m_iHideHUDDisplay & HIDEHUD_ALL))
 		{
 			pNewMenu = m_pStatMenu;
@@ -1442,20 +1438,20 @@ void TeamFortressViewport::ShowVGUIMenu(int iMenu)
 
 	case MENU_SPAWN:
 		//Hide everything and show the blank screen
-		dbg("MENU_SPAWN");
+		
 		HideVGUIMenu();
 		pNewMenu = m_pSpawnScreen;
 		pNewMenu->Reset();
 		break;
 
 	case MENU_LOCAL: // MiB MAR2015_01 [LOCAL_PANEL] - Show the local panel
-		dbg("MENU_LOCAL");
+		
 		HideVGUIMenu();
 		pNewMenu = m_pLocalizedMenu;
 		break;
 
 	case MENU_MAIN:
-		dbg("MENU_MAIN");
+		
 		if (!m_pCurrentMenu && !(gHUD.m_iHideHUDDisplay & HIDEHUD_ALL))
 		{
 			pNewMenu = m_pMainMenu;
@@ -1464,7 +1460,7 @@ void TeamFortressViewport::ShowVGUIMenu(int iMenu)
 		break;
 
 	default:
-		dbg("Unknown Menu");
+		
 		break;
 	}
 
@@ -1472,10 +1468,10 @@ void TeamFortressViewport::ShowVGUIMenu(int iMenu)
 		return;
 
 	// Close the Command Menu if it's open
-	dbg("Call HideCommandMenu");
+	
 	HideCommandMenu();
 
-	dbg("Call SetMenuID/SetActive");
+	
 	pNewMenu->SetMenuID(iMenu);
 	pNewMenu->SetActive(true);
 
@@ -1486,11 +1482,11 @@ void TeamFortressViewport::ShowVGUIMenu(int iMenu)
 	}
 	else
 	{
-		dbg("Call Open");
+		
 		m_pCurrentMenu = pNewMenu;
 		m_pCurrentMenu->Open();
 
-		dbg("Call UpdateCursorState");
+		
 		UpdateCursorState();
 	}
 

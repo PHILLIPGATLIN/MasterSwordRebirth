@@ -325,14 +325,14 @@ void CBaseMonster ::Look(int iDistance)
 		Vector delta = Vector(iDistance, iDistance, iDistance);
 
 		// Find only monsters/clients in box, NOT limited to PVS
-		//dbg("Entities in box");
+		//
 		int count = UTIL_EntitiesInBox(pList, 100, pev->origin - delta, pev->origin + delta, FL_CLIENT | FL_MONSTER);
 		for (int i = 0; i < count; i++)
 		{
-			//dbg("Assign ent Pre");
+			//
 			if (!pList[i])
 				continue;
-			//dbg("Assign ent Post");
+			//
 			//ALERT ( at_aiconsole, "scanning %i = %s\n", i,pList[i]->DisplayName() );
 			pSightEnt = pList[i];
 			// !!!temporarily only considering other monsters and clients, don't see prisoners
@@ -340,7 +340,7 @@ void CBaseMonster ::Look(int iDistance)
 				!FBitSet(pSightEnt->pev->spawnflags, SF_MONSTER_PRISONER) &&
 				pSightEnt->pev->health > 0)
 			{
-				//dbg("First if");
+				//
 				// the looker will want to consider this entity
 				// don't check anything else about an entity that can't be seen, or an entity that you don't care about.
 				if (IRelationship(pSightEnt) != R_NO && FInViewCone(pSightEnt) && !FBitSet(pSightEnt->pev->flags, FL_NOTARGET) && FVisible(pSightEnt))
@@ -406,7 +406,7 @@ void CBaseMonster ::Look(int iDistance)
 		}
 	}
 
-	//dbg("SetConditions");
+	//
 	SetConditions(iSighted);
 
 	//

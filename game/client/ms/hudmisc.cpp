@@ -153,7 +153,7 @@ void CHudMisc::Think(void)
 	//SaveCharSend(); //Done every frame so I can retry the connect
 
 	//Handle character upload to server
-	dbg("Think_SendCharData");
+	
 	MSChar_Interface::Think_SendChar(&player);
 
 	
@@ -189,7 +189,7 @@ void CHudMisc ::UserCmd_ChangeSayType(void)
 void CHudMisc ::UserCmd_RemovePack(void)
 {
 	
-	dbg("Begin");
+	
 
 	//Menu is already on, turn it off
 	if (gHUD.m_Menu->HideMyMenu(MENU_REMOVEPACK))
@@ -296,7 +296,7 @@ void CHudMisc::SelectMenuItem(int idx, TCallbackMenu *pcbMenu)
 void CHudMisc ::UserCmd_Offer(void)
 {
 	
-	dbg("Begin");
+	
 
 	//Menu is already on, turn it off
 	if (gHUD.m_Menu->HideMyMenu(MENU_OFFER))
@@ -355,7 +355,7 @@ void CHudMisc ::UserCmd_Offer(void)
 void CHudMisc ::UserCmd_Accept(void)
 {
 	
-	dbg("Begin");
+	
 
 	//Override 'accept' for when entering gold amounts
 	char sz[128];

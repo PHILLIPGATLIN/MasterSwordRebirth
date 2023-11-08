@@ -4948,7 +4948,7 @@ bool CScript::Spawn(string_i Filename, CBaseEntity* pScriptedEnt, IScripted* pSc
 void CScript::RunScriptEvents(bool fOnlyRunNamedEvents)
 {
 	
-	dbg("Proc_Events");
+	
 	//Run script events
 	//~ Runs unnamed events or named events that were specified with calleventtimed ~
 	int events = m.Events.size();
@@ -4959,7 +4959,7 @@ void CScript::RunScriptEvents(bool fOnlyRunNamedEvents)
 		msstring msEventName = (m.ScriptFile.c_str());
 		msEventName.append("->");
 		msEventName.append(Event.Name);
-		dbg(msEventName);
+		
 		if (!Event.Name && fOnlyRunNamedEvents)
 			continue;
 
@@ -5070,7 +5070,7 @@ bool CScript::ParseScriptFile(const char* pszScriptData)
 {
 	
 
-	dbg("Begin");
+	
 	if (!m.ScriptFile.len() || !pszScriptData)
 		return false;
 
@@ -5151,7 +5151,7 @@ bool CScript::ParseScriptFile(const char* pszScriptData)
 // int CScript::NewParseLine(std::string &pszCommandLine, int LineNum, SCRIPT_EVENT **pCurrentEvent, scriptcmd_list **pCurrentCmds, ::mslist<scriptcmd_list *> &ParentCmds)
 // {
 // 	//
-// 	//dbg("Begin");
+// 	//
 
 // 	//Log("Parse: %s", pszCommandLine.c_str());
 // 	SCRIPT_EVENT *CurrentEvent = *pCurrentEvent;
@@ -5793,7 +5793,7 @@ int CScript::ParseLine(const char* pszCommandLine /*in*/, int LineNum /*in*/, SC
 {
 	
 
-	dbg("Begin");
+	
 
 	SCRIPT_EVENT* CurrentEvent = *pCurrentEvent;
 	scriptcmd_list& CurrentCmds = **pCurrentCmds;
@@ -5805,7 +5805,7 @@ int CScript::ParseLine(const char* pszCommandLine /*in*/, int LineNum /*in*/, SC
 #define CmdLine &pszCommandLine[LineOfs]
 #define CmdLineTmp &pszCommandLine[TmpLineOfs]
 
-	dbg(pszCommandLine);
+	
 
 	//Read the first word of the line
 	if (sscanf(pszCommandLine, "%s", TestCommand) <= 0)
